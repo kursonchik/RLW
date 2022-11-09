@@ -1,12 +1,15 @@
 package com.academy.model.entity;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Objects;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+import java.util.Collection;
+import java.util.Set;
 
 /**
  * @author : Volha Salash
@@ -18,41 +21,64 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Users  implements Serializable {
+@Data
+public class Users implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "id")
+    private int id;
 
-    @Column(name = "firstName")
-    private String firstName;
+    @NotBlank
+    @Size(min = 6, max = 32)
+    @Column(name = "username", unique = true)
+    private String username;
 
-    @Column(name = "lastName")
-    private String secondName;
-
-    @Column(name = "birthDate")
-    private LocalDate birthDate;
-
-    @Column(name = "email")
+    @Email
+    @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "role")
-    private int role;
+    @OneToOne(mappedBy = "user")
+    private Passengers passenger;
 
-    @OneToMany(mappedBy = "users")
-    private List<Ticket> tickets;
+    @NotBlank
+    @Column(name = "password")
+    private String password;
+
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
+
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Users)) return false;
-        Users users = (Users) o;
-        return getFirstName().equals(users.getFirstName()) &&
-                getSecondName().equals(users.getSecondName()) &&
-                getBirthDate().equals(users.getBirthDate());
+    public boolean isAccountNonExpired() {
+        return true;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(getFirstName(), getSecondName(), getBirthDate());
+    public boolean isAccountNonLocked() {
+        return true;
     }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
+    }
+
+
 }

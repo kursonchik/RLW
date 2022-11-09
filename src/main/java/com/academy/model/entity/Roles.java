@@ -15,16 +15,23 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "role", schema = "railways")
-public class Role {
+public class Roles implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idRole")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "roleName")
+    @Column(name = "name")
     private String name;
 
-}
+    @Transient
+    @ManyToMany(mappedBy = "roles")
+    private Set<Users> users;
 
+
+    @Override
+    public String getAuthority() {
+        return getName();
+    }
+}

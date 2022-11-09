@@ -32,6 +32,58 @@ ADD CONSTRAINT `role_id`
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
 
+  ALTER TABLE `railwaybooking`.`users`
+DROP FOREIGN KEY `role_id`;
+ALTER TABLE `railwaybooking`.`users`
+ADD CONSTRAINT `role_id`
+  FOREIGN KEY (`role_id`)
+  REFERENCES `railwaybooking`.`roles` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+  ALTER TABLE `railwaybooking`.`users`
+DROP FOREIGN KEY `role_id`;
+ALTER TABLE `railwaybooking`.`users`
+DROP COLUMN `role_id`,
+DROP COLUMN `passport_number`,
+DROP COLUMN `birth_date`,
+DROP COLUMN `last_name`,
+DROP COLUMN `first_name`,
+DROP INDEX `role_id_idx` ;
+;
+
+CREATE TABLE `railwaybooking`.`user_role` (
+  `user_id` INT NOT NULL,
+  `role_id` INT NOT NULL,
+  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  INDEX `role_id_idx` (`role_id` ASC) VISIBLE,
+  CONSTRAINT `userID`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `railwaybooking`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `role_ID`
+    FOREIGN KEY (`role_id`)
+    REFERENCES `railwaybooking`.`roles` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+CREATE TABLE `railwaybooking`.`passengers` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `birth_date` DATE NOT NULL,
+  `passport_number` INT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `user_id_idx` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `railwaybooking`.`users` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
   CREATE TABLE `railwaybooking`.`tickets` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `number` VARCHAR(45) NULL,
@@ -56,6 +108,16 @@ ADD CONSTRAINT `role_id`
   `seats` INT NULL,
   `root_id` INT NULL,
   PRIMARY KEY (`id`));
+
+  ALTER TABLE `railwaybooking`.`trains`
+ADD INDEX `roots_id_idx` (`root_id` ASC) VISIBLE;
+;
+ALTER TABLE `railwaybooking`.`trains`
+ADD CONSTRAINT `roots_id`
+  FOREIGN KEY (`root_id`)
+  REFERENCES `railwaybooking`.`roots` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
 
 CREATE TABLE `railwaybooking`.`stations` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -85,3 +147,73 @@ CREATE TABLE `railwaybooking`.`shedules` (
     REFERENCES `railwaybooking`.`trains` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+
+    CREATE TABLE `railwaybooking`.`roots` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `railwaybooking`.`mappings` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `station_id` INT NOT NULL,
+  `root_id` INT NOT NULL,
+  `station_order` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `station_id_idx` (`station_id` ASC) VISIBLE,
+  INDEX `root_id_idx` (`root_id` ASC) VISIBLE,
+  CONSTRAINT `station_id`
+    FOREIGN KEY (`station_id`)
+    REFERENCES `railwaybooking`.`stations` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `root_id`
+    FOREIGN KEY (`root_id`)
+    REFERENCES `railwaybooking`.`roots` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+    CREATE TABLE `railwaybooking`.`areas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `station_from_id` INT NOT NULL,
+  `station_to_id` INT NOT NULL,
+  `distance` DOUBLE NOT NULL,
+  `root_id` INT NOT NULL,
+  `direction` TINYINT(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `station_from_id_idx` (`station_from_id` ASC) VISIBLE,
+  INDEX `station_to_id_idx` (`station_to_id` ASC) VISIBLE,
+  CONSTRAINT `station_from_id`
+    FOREIGN KEY (`station_from_id`)
+    REFERENCES `railwaybooking`.`stations` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE CASCADE,
+  CONSTRAINT `station_to_id`
+    FOREIGN KEY (`station_to_id`)
+    REFERENCES `railwaybooking`.`stations` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+    ALTER TABLE `railwaybooking`.`areas`
+ADD CONSTRAINT `rootID`
+  FOREIGN KEY (`root_id`)
+  REFERENCES `railwaybooking`.`roots` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
+
+CREATE TABLE `railwaybooking`.`train_tickets` (
+  `train_id` INT NULL,
+  `ticket_id` INT NULL,
+  INDEX `train_id_idx` (`train_id` ASC) VISIBLE,
+  INDEX `ticket_id_idx` (`ticket_id` ASC) VISIBLE,
+  CONSTRAINT `trainID`
+    FOREIGN KEY (`train_id`)
+    REFERENCES `railwaybooking`.`trains` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `ticketID`
+    FOREIGN KEY (`ticket_id`)
+    REFERENCES `railwaybooking`.`tickets` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);
+
+
+
