@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * @author : Volha Salash
@@ -15,19 +14,13 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto implements Serializable {
+public class MappingDto implements Serializable {
 
     private int id;
 
-    private String username;
+    private StationDto station;
 
-    private String email;
+    private TrackDto track;
 
-    private PassengerDto passenger;
-
-    private String password;
-
-    private String passwordConfirm;
-
-    private Set<RoleDto> roles;
+    private int stationOrder;
 }

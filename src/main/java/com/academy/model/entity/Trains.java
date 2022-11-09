@@ -48,6 +48,6 @@ public class Trains implements Serializable {
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "root_id")
-    private Roots root;
+    @JoinColumn(name = "track_id")
+    private Tracks track;
 }
