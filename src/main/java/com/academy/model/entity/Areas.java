@@ -1,0 +1,43 @@
+package com.academy.model.entity;
+
+import lombok.*;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+/**
+ * @author : Volha Salash
+ */
+@Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Areas implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "station_from_id")
+    private Stations stationFrom;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "station_to_id")
+    private Stations stationTo;
+
+    @Column(name = "distance")
+    private double distance;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "track_id")
+    private Tracks track;
+
+    @Column(name = "direction")
+    private boolean direction;
+
+
+}

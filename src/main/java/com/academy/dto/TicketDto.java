@@ -15,19 +15,25 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto implements Serializable {
+public class TicketDto implements Serializable {
 
     private int id;
 
-    private String username;
-
-    private String email;
+    private String number;
 
     private PassengerDto passenger;
 
-    private String password;
+    private Set<TrainDto> trains;
 
-    private String passwordConfirm;
+    private String departureStation;
 
-    private Set<RoleDto> roles;
+    private String arrivalStation;
+
+    private String departureTime;
+
+    private String arrivalTime;
+
+    private String date;
+
+    private double price;
 }

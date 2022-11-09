@@ -2,7 +2,7 @@ drop database if exists railwaybooking;
 create SCHEMA railwaybooking;
 use railwaybooking;
 
-create TABLE IF NOT EXISTS user (
+create TABLE users (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(45) UNIQUE NOT NULL,
   password VARCHAR(45) NOT NULL DEFAULT '{noop}111111',
@@ -16,12 +16,12 @@ create TABLE IF NOT EXISTS user (
   ON update CASCADE ON delete SET DEFAULT
   );
 
-  CREATE TABLE `railwaybooking`.`roles` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`));
+  CREATE TABLE roles (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NULL,
+  PRIMARY KEY (id));
 
-  ALTER TABLE `railwaybooking`.`users`
+  ALTER TABLE users
 CHANGE COLUMN `role_id` `role_id` INT NOT NULL ,
 ADD INDEX `role_id_idx` (`role_id` ASC) VISIBLE;
 ;
@@ -63,7 +63,6 @@ CREATE TABLE `railwaybooking`.`user_role` (
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `role_ID`
-    FOREIGN KEY (`role_id`)
     REFERENCES `railwaybooking`.`roles` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE);
