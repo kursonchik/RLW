@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.Set;
 
 /**
  * @author : Volha Salash
@@ -15,19 +14,17 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto implements Serializable {
+public class AreaDto implements Serializable {
 
     private int id;
 
-    private String username;
+    private StationDto stationFrom;
 
-    private String email;
+    private StationDto stationTo;
 
-    private PassengerDto passenger;
+    private double length;
 
-    private String password;
+    private TrackDto track;
 
-    private String passwordConfirm;
-
-    private Set<RoleDto> roles;
+    private boolean direction;
 }
