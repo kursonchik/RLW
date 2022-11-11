@@ -40,4 +40,12 @@ public class Areas implements Serializable {
     private boolean direction;
 
 
+    public Areas(Stations stationFrom, Stations stationTo,
+                 double distance, Tracks track, boolean direction) {
+        this.stationFrom = stationFrom;
+        this.stationTo = stationTo;
+        this.distance = distance;
+        this.track = track;
+        this.direction = direction;
+    }
 }

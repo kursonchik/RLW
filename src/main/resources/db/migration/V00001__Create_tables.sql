@@ -76,7 +76,7 @@ create TABLE IF NOT EXISTS tickets (
     REFERENCES passengers (id)
     ON delete CASCADE
     ON update CASCADE);
-
+    
     create TABLE IF NOT EXISTS stations (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(45) NOT NULL,

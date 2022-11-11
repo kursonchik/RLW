@@ -1,6 +1,5 @@
 package com.academy.model.repository.impl;
 
-import com.academy.model.entity.Roots;
 import com.academy.model.entity.Tracks;
 import com.academy.model.entity.Trains;
 import com.academy.model.repository.interfaces.TrainRepository;
@@ -64,8 +63,8 @@ public class TrainRepositoryImpl implements TrainRepository {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Trains> getTrainsByRoot(Tracks track) {
-        Query query = entityManager.createQuery("SELECT t FROM Trains t WHERE t.root = :root");
+    public List<Trains> getTrainsByTrack(Tracks track) {
+        Query query = entityManager.createQuery("SELECT t FROM Trains t WHERE t.track = :track");
         query.setParameter("track)", track);
         return query.getResultList();
     }

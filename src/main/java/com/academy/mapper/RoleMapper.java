@@ -1,9 +1,7 @@
 package com.academy.mapper;
 
 import com.academy.dto.RoleDto;
-import com.academy.model.entity.Role;
 import com.academy.model.entity.Roles;
-import com.academy.model.entity.Users;
 import org.mapstruct.Mapper;
 
 /**

@@ -1,6 +1,6 @@
 package com.academy.model.repository.interfaces;
 
-import com.academy.model.entity.Roots;
+import com.academy.model.entity.Tracks;
 import com.academy.model.entity.Trains;
 
 import java.util.List;
@@ -21,5 +21,5 @@ public interface TrainRepository {
 
     void deleteTrain(Trains train);
 
-    List<Trains> getTrainsByRoot(Roots root);
+    List<Trains> getTrainsByTrack(Tracks track);
 }

@@ -161,3 +161,4 @@ create TABLE IF NOT EXISTS train_tickets(
     ON delete CASCADE
     ON update CASCADE
 );
+
