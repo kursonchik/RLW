@@ -44,11 +44,11 @@
     </div>
 </div>
 
-    <footer class="page-footer font-small">
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="#">JavaSchool</a>
-        </div>
-    </footer>
+<footer class="page-footer font-small">
+    <div class="footer-copyright text-center py-3">© 2022 Copyright:
+        <a href="#">IT academy</a>
+    </div>
+</footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
