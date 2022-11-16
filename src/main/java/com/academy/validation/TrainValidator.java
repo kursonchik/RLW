@@ -51,13 +51,13 @@ public class TrainValidator implements Validator {
             errors.rejectValue("name", "Duplicate.trainForm.name");
         }
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "capacity", "NotEmpty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "seats", "NotEmpty");
 
-        if (!String.valueOf(train.getCapacity()).matches("\\d+")) {
-            errors.rejectValue("capacity", "Format.trainForm.capacity");
+        if (!String.valueOf(train.getSeats()).matches("\\d+")) {
+            errors.rejectValue("seats", "Format.trainForm.seats");
         }
-        if (train.getCapacity() < 10 || train.getCapacity() > 50) {
-            errors.rejectValue("capacity", "Range.trainForm.capacity");
+        if (train.getSeats() < 10 || train.getSeats() > 50) {
+            errors.rejectValue("seats", "Range.trainForm.seats");
         }
     }
 }

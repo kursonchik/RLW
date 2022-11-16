@@ -32,4 +32,6 @@ public interface TrainService {
     List<PassengerDto> getPassengersByTrainId(int trainId);
 
     TrainDto updateTrainDto(TrainDto trainDto);
+
+
 }

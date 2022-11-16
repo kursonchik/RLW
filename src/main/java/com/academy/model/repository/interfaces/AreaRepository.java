@@ -2,12 +2,14 @@ package com.academy.model.repository.interfaces;
 
 import com.academy.model.entity.Areas;
 import com.academy.model.entity.Stations;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author : Volha Salash
  */
+
 public interface AreaRepository {
     Areas getArea(int id);
 

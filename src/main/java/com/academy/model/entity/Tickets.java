@@ -12,6 +12,7 @@ import java.util.Set;
  * @author : Volha Salash
  */
 @Entity
+@Data
 @Builder
 @Getter
 @Setter

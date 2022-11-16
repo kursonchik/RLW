@@ -19,6 +19,7 @@ import java.util.Properties;
 /**
  * @author : Volha Salash
  */
+
 @Configuration
 @EnableTransactionManagement
 public class PersistenceJPAConfig {

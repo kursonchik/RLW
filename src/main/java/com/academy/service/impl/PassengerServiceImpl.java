@@ -4,6 +4,7 @@ import com.academy.dto.PassengerDto;
 import com.academy.dto.UserDto;
 import com.academy.mapper.PassengerMapper;
 import com.academy.mapper.UserMapper;
+import com.academy.model.entity.Passengers;
 import com.academy.model.repository.impl.PassengerRepositoryImpl;
 import com.academy.service.interfaces.PassengerService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,14 +28,15 @@ public class PassengerServiceImpl implements PassengerService {
     private final PassengerMapper passengerMapper;
     private final UserMapper userMapper;
 
-    @Override
-    public PassengerDto getPassenger(int id) {
-        return passengerMapper.toDto(passengerRepository.getPassenger(id));
-    }
 
     @Override
     public List<PassengerDto> getAllPassengers() {
         return passengerMapper.toDtoList(passengerRepository.getAllPassengers());
+    }
+
+    @Override
+    public PassengerDto getPassenger(int id) {
+        return passengerMapper.toDto(passengerRepository.getPassenger(id));
     }
 
     @Override
@@ -66,4 +69,5 @@ public class PassengerServiceImpl implements PassengerService {
         passengerRepository.deletePassenger(passengerMapper.toEntity(passengerDto));
         log.info("Deleted passenger " + passengerDto.getFirstName() + " " + passengerDto.getLastName());
     }
+
 }

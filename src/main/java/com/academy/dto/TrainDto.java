@@ -21,7 +21,7 @@ public class TrainDto implements Serializable {
 
     private String name;
 
-    private int capacity;
+    private int seats;
 
     private Set<ScheduleDto> schedules;
 

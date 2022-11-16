@@ -14,13 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * @author : Volha Salash
- */
 @Controller
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
+public class PassengerController {
 
-    public class PassengerController {
     private final PassengerService passengerService;
     private final TrainService trainService;
     private final PassengerValidator passengerValidator;
@@ -49,19 +46,19 @@ import org.springframework.web.servlet.ModelAndView;
         return modelAndView;
     }
 
-        @PostMapping(value = "/passengers/edit")
-        public ModelAndView editPassenger(@ModelAttribute("passengerForm") PassengerDto passengerDto,
-                                          BindingResult bindingResult) {
-            ModelAndView modelAndView = new ModelAndView();
-            passengerValidator.validate(passengerDto, bindingResult);
-            if (bindingResult.hasErrors()) {
-                modelAndView.setViewName("passengerEdit");
-            } else {
-                modelAndView.setViewName("redirect:/passengers");
-                passengerService.editPassenger(passengerDto);
-            }
-            return modelAndView;
+    @PostMapping(value = "/passengers/edit")
+    public ModelAndView editPassenger(@ModelAttribute("passengerForm") PassengerDto passengerDto,
+                                      BindingResult bindingResult) {
+        ModelAndView modelAndView = new ModelAndView();
+        passengerValidator.validate(passengerDto, bindingResult);
+        if (bindingResult.hasErrors()) {
+            modelAndView.setViewName("passengerEdit");
+        } else {
+            modelAndView.setViewName("redirect:/passengers");
+            passengerService.editPassenger(passengerDto);
         }
+        return modelAndView;
+    }
 
     @GetMapping(value = "/passengers/delete/{id}")
     public ModelAndView deletePassenger(@PathVariable("id") int id) {

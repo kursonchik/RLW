@@ -1,5 +1,6 @@
 package com.academy.config;
 
+
 import org.apache.activemq.spring.ActiveMQConnectionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,9 +8,6 @@ import org.springframework.jms.core.JmsTemplate;
 
 import java.util.Collections;
 
-/**
- * @author : Volha Salash
- */
 @Configuration
 public class MessagingConfig {
 

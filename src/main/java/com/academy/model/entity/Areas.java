@@ -9,6 +9,7 @@ import java.io.Serializable;
  * @author : Volha Salash
  */
 @Entity
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

@@ -12,6 +12,7 @@ import java.util.Date;
  * @author : Volha Salash
  */
 @Entity
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

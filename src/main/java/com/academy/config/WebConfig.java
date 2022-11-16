@@ -19,6 +19,7 @@ import java.util.Locale;
 /**
  * @author : Volha Salash
  */
+
 @EnableWebMvc
 @Configuration
 @ComponentScan(basePackages = "com.academy")
@@ -28,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/jsp/");
+        viewResolver.setPrefix("/WEB-INF/pages/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }

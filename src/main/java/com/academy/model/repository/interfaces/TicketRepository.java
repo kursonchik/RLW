@@ -3,6 +3,7 @@ package com.academy.model.repository.interfaces;
 import com.academy.model.entity.Passengers;
 import com.academy.model.entity.Tickets;
 import com.academy.model.entity.Trains;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+
 public interface TicketRepository {
     Tickets getTicket(int id);
 

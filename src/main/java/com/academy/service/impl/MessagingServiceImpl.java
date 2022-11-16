@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author : Volha Salash
  */
+
 @Log4j2
 @Component
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))

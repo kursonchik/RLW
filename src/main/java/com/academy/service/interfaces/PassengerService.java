@@ -23,4 +23,6 @@ public interface PassengerService {
     void editPassenger(PassengerDto passengerDto);
 
     void deletePassenger(PassengerDto passengerDto);
+
+
 }

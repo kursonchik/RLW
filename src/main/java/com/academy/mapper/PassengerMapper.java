@@ -14,13 +14,30 @@ import java.util.List;
  */
 @Mapper(uses = {UserMapper.class, TicketMapper.class})
 public interface PassengerMapper {
-
+    /**
+     * To dto passenger dto.
+     *
+     * @param passenger the passenger entity
+     * @return the passenger dto
+     */
     @Mapping(source = "birthDate", target = "birthDate", dateFormat = "dd.MM.yyyy")
     PassengerDto toDto(Passengers passenger);
 
+    /**
+     * To dto list list.
+     *
+     * @param passengers the passenger entity list
+     * @return the list
+     */
     @InheritConfiguration
     List<PassengerDto> toDtoList(List<Passengers> passengers);
 
+    /**
+     * To entity list list.
+     *
+     * @param passengerDto the passenger dto list
+     * @return the list
+     */
     @InheritInverseConfiguration
     Passengers toEntity(PassengerDto passengerDto);
 }

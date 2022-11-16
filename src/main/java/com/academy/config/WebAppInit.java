@@ -12,6 +12,7 @@ import javax.servlet.ServletRegistration;
 /**
  * @author : Volha Salash
  */
+
 public class WebAppInit implements WebApplicationInitializer {
 
     public void onStartup(ServletContext servletContext) {

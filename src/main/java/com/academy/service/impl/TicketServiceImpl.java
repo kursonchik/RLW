@@ -132,7 +132,7 @@ public class TicketServiceImpl implements TicketService {
                         }
                     }
                 }
-                if (existingTicketsCount == train.getCapacity()) {
+                if (existingTicketsCount == train.getSeats()) {
                     areTicketsAvailable = false;
                     break;
                 }
