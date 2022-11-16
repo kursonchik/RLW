@@ -1,0 +1,34 @@
+package com.academy.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+/**
+ * @author : Volha Salash
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class TimetableScheduleDto implements Serializable {
+
+    private int id;
+
+    private String stationName;
+
+    private String trainName;
+
+    private String trainStatus;
+
+    private String arrivalTime;
+
+    private String departureTime;
+
+    private boolean direction;
+
+    private String endStation;
+}

@@ -12,12 +12,31 @@ import java.util.Date;
  * @author : Volha Salash
  */
 @Entity
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 public class Schedules implements Serializable {
+
+        public Schedules(Stations station, Trains train) {
+                this.station = station;
+                this.train = train;
+        }
+
+        public Schedules(Stations station, Trains train, boolean direction) {
+                this.station = station;
+                this.train = train;
+                this.direction = direction;
+        }
+
+        public Schedules(Stations station, Trains train, String trainStatus, boolean direction) {
+                this.station = station;
+                this.train = train;
+                this.trainStatus = trainStatus;
+                this.direction = direction;
+        }
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,4 +68,5 @@ public class Schedules implements Serializable {
 
         @Column(name = "direction")
         private boolean direction;
-    }
+
+}

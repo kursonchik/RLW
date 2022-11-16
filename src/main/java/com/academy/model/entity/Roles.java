@@ -10,6 +10,7 @@ import java.util.Set;
  * @author : Volha Salash
  */
 @Entity
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
