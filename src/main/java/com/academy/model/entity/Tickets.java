@@ -12,9 +12,7 @@ import java.util.Set;
  * @author : Volha Salash
  */
 @Entity
-@Builder
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tickets implements Serializable {

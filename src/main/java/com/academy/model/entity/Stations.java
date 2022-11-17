@@ -11,11 +11,9 @@ import java.util.Set;
  * @author : Volha Salash
  */
 @Entity
-@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Stations implements Serializable {
     @Id
     @Column(name = "id")

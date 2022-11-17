@@ -8,19 +8,15 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 /**
  * @author : Volha Salash
  */
 @Entity
-@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Trains implements Serializable {
     @Id
     @Column(name = "id", unique = true, nullable = false)
@@ -48,6 +44,6 @@ public class Trains implements Serializable {
 
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "root_id")
-    private Roots root;
+    @JoinColumn(name = "track_id")
+    private Tracks track;
 }

@@ -23,6 +23,7 @@ public class UserDto implements Serializable {
 
     private String email;
 
+    private PassengerDto passenger;
 
     private String password;
 
