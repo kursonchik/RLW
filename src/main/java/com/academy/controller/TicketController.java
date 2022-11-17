@@ -21,15 +21,21 @@ import java.util.List;
  */
 @Controller
 @SessionAttributes("ticketForm")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class TicketController {
-
+    @Autowired
     private final TicketService ticketService;
+    @Autowired
     private final StationService stationService;
+    @Autowired
     private final ScheduleService scheduleService;
+    @Autowired
     private final TrainService trainService;
+    @Autowired
     private final UserService userService;
+    @Autowired
     private final PassengerService passengerService;
+    @Autowired
     private final TicketValidator ticketValidator;
 
     @GetMapping(value = "/")

@@ -10,6 +10,7 @@ import java.io.Serializable;
 /**
  * @author : Volha Salash
  */
+/*
 @Data
 @Builder
 @NoArgsConstructor
@@ -32,3 +33,5 @@ public class TimetableScheduleDto implements Serializable {
 
     private String endStation;
 }
+
+ */

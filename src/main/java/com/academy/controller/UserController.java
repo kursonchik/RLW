@@ -23,9 +23,8 @@ import java.util.List;
  * @author : Volha Salash
  */
 @Controller
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class UserController {
-
     private final UserService userService;
     private final SecurityService securityService;
     private final UserValidator userValidator;

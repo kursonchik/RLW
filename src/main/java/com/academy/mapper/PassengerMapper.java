@@ -2,17 +2,14 @@ package com.academy.mapper;
 
 import com.academy.dto.PassengerDto;
 import com.academy.model.entity.Passengers;
-import org.mapstruct.InheritConfiguration;
-import org.mapstruct.InheritInverseConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 
 import java.util.List;
 
 /**
  * @author : Volha Salash
  */
-@Mapper(uses = {UserMapper.class, TicketMapper.class})
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface PassengerMapper {
     /**
      * To dto passenger dto.
@@ -29,6 +26,7 @@ public interface PassengerMapper {
      * @param passengers the passenger entity list
      * @return the list
      */
+
     @InheritConfiguration
     List<PassengerDto> toDtoList(List<Passengers> passengers);
 

@@ -13,11 +13,8 @@ import java.util.Date;
  */
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Schedules implements Serializable {
 
         public Schedules(Stations station, Trains train) {

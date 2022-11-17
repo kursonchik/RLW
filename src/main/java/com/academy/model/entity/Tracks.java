@@ -9,9 +9,6 @@ import java.util.Set;
 /**
  * @author : Volha Salash
  */
-@Builder
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

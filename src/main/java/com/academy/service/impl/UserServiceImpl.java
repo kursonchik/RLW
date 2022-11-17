@@ -30,12 +30,13 @@ import java.util.Set;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Autowired
     private final UserMapper userMapper;
 
     @Override

@@ -21,7 +21,7 @@ public interface StationService {
 
     void editStation(StationDto stationDto);
 
-    void deleteStation(StationDto stationDto);
+ //   void deleteStation(StationDto stationDto);
 
     LinkedList<StationDto> getRoute(String stationFrom, String stationTo);
 

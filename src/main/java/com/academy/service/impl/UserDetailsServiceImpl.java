@@ -22,7 +22,7 @@ import java.util.Set;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepository userRepository;

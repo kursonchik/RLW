@@ -13,9 +13,9 @@ import org.springframework.validation.Validator;
  * @author : Volha Salash
  */
 @Component
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class TrainValidator implements Validator {
-
+    @Autowired
     private final TrainService trainService;
 
     @Override

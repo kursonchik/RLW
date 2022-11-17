@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+/*
 @Controller
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TimetableController {
@@ -48,3 +49,5 @@ public class TimetableController {
         return modelAndView;
     }
 }
+
+ */

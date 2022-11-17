@@ -11,7 +11,6 @@ import java.util.Set;
  */
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

@@ -6,6 +6,7 @@ import com.academy.mapper.PassengerMapper;
 import com.academy.mapper.UserMapper;
 import com.academy.model.entity.Passengers;
 import com.academy.model.repository.impl.PassengerRepositoryImpl;
+import com.academy.model.repository.interfaces.PassengerRepository;
 import com.academy.service.interfaces.PassengerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -21,11 +22,13 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class PassengerServiceImpl implements PassengerService {
-
-    private final PassengerRepositoryImpl passengerRepository;
+    @Autowired
+    private final PassengerRepository passengerRepository;
+    @Autowired
     private final PassengerMapper passengerMapper;
+    @Autowired
     private final UserMapper userMapper;
 
 

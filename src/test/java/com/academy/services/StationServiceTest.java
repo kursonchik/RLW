@@ -18,7 +18,7 @@ public class StationServiceTest {
 
     @InjectMocks
     private StationServiceImpl stationService;
-
+/*
     @Test
     public void testDeleteStationException() {
         StationDto stationDto = new StationDto();
@@ -26,4 +26,6 @@ public class StationServiceTest {
 
         assertThrows(IllegalOperationException.class, () -> stationService.deleteStation(stationDto));
     }
+
+ */
 }

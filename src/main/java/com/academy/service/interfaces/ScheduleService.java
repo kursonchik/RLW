@@ -2,12 +2,10 @@ package com.academy.service.interfaces;
 
 import com.academy.dto.ScheduleDto;
 import com.academy.dto.StationDto;
-import com.academy.dto.TimetableScheduleDto;
 import com.academy.dto.TrainDto;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author : Volha Salash
@@ -48,9 +46,9 @@ public interface ScheduleService {
 
     void createEmptyScheduleForStation(StationDto stationDto, int trackId);
 
-    void delaySchedule(int id, int minutes);
+    //   void delaySchedule(int id, int minutes);
 
-    void cancelSchedule(int id);
+    //   void cancelSchedule(int id);
 
-    Map<String, List<TimetableScheduleDto>> getTimetableMap();
+    //   Map<String, List<TimetableScheduleDto>> getTimetableMap();
 }

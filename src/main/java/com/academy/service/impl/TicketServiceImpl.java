@@ -27,15 +27,19 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class TicketServiceImpl implements TicketService {
+@RequiredArgsConstructor
 
+public class TicketServiceImpl implements TicketService {
+    @Autowired
     private final TicketRepository ticketRepository;
     private final AreaService areaService;
     private final StationService stationService;
     private final ScheduleService scheduleService;
+    @Autowired
     private final TicketMapper ticketMapper;
+    @Autowired
     private final PassengerMapper passengerMapper;
+    @Autowired
     private final TrainMapper trainMapper;
 
     private static final int MIN_TIME_TO_DEPARTURE = 600000;
@@ -89,7 +93,7 @@ public class TicketServiceImpl implements TicketService {
         double ticketPrice = 0;
         List<AreaDto> areas = areaService.getAreasByRoute(route);
         for (AreaDto area : areas) {
-            ticketPrice += area.getLength() * 3;
+            ticketPrice += area.getDistance() * 3;
         }
         return ticketPrice;
     }

@@ -2,6 +2,7 @@ package com.academy.mapper;
 
 import com.academy.dto.TrainDto;
 import com.academy.model.entity.Trains;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
-@Mapper(uses = {ScheduleMapper.class, TicketMapper.class, TrackMapper.class})
+@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface TrainMapper {
 
     TrainDto toDto(Trains train);

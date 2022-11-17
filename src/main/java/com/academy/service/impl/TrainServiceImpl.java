@@ -9,7 +9,6 @@ import com.academy.mapper.TrackMapper;
 import com.academy.mapper.TrainMapper;
 import com.academy.model.repository.interfaces.PassengerRepository;
 import com.academy.model.repository.interfaces.TrainRepository;
-import com.academy.service.interfaces.MessagingService;
 import com.academy.service.interfaces.TrainService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -26,15 +25,18 @@ import java.util.Set;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class TrainServiceImpl implements TrainService {
 
     private final TrainRepository trainRepository;
+    @Autowired
     private final TrainMapper trainMapper;
+    @Autowired
     private final TrackMapper trackMapper;
     private final PassengerRepository passengerRepository;
+    @Autowired
     private final PassengerMapper passengerMapper;
-    private final MessagingService messagingService;
+    //   private final MessagingService messagingService;
 
     @Override
     public TrainDto getTrain(int id) {

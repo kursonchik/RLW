@@ -15,11 +15,8 @@ import java.util.Set;
  */
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Trains implements Serializable {
     @Id
     @Column(name = "id", unique = true, nullable = false)

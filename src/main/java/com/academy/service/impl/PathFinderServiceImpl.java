@@ -16,11 +16,10 @@ import java.util.*;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class PathFinderServiceImpl implements PathFinderService {
 
     private final AreaService areaService;
-
     private List<AreaDto> areas;
     private Set<StationDto> settledStations;
     private Set<StationDto> unsettledStations;
@@ -61,7 +60,7 @@ public class PathFinderServiceImpl implements PathFinderService {
         for (AreaDto area : areas) {
             if (area.getStationFrom().equals(station)
                     && area.getStationTo().equals(target)) {
-                return area.getLength();
+                return area.getDistance();
             }
         }
         throw new RuntimeException("Something went wrong");

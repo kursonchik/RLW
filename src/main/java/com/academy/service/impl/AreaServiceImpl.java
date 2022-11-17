@@ -23,9 +23,9 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class AreaServiceImpl implements AreaService {
-
+    @Autowired
     private final AreaRepository areaRepository;
     private final MappingService mappingService;
     private final AreaMapper areaMapper;

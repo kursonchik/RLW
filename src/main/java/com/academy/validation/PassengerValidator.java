@@ -17,10 +17,11 @@ import java.util.Date;
  * @author : Volha Salash
  */
 @Component
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class PassengerValidator implements Validator {
-
+    @Autowired
     private final ScheduleService scheduleService;
+    @Autowired
     private final PassengerService passengerService;
 
     @Override

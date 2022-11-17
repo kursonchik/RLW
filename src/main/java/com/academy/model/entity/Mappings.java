@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * @author : Volha Salash
  */
-@Builder
+
 @Getter
 @Setter
 @NoArgsConstructor

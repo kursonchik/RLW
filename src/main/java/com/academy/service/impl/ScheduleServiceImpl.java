@@ -4,7 +4,6 @@ import com.academy.dto.*;
 import com.academy.exception.TrainsNotFoundException;
 import com.academy.mapper.ScheduleMapper;
 import com.academy.mapper.StationMapper;
-import com.academy.mapper.TimetableScheduleMapper;
 import com.academy.mapper.TrainMapper;
 import com.academy.model.entity.Schedules;
 import com.academy.model.repository.interfaces.ScheduleRepository;
@@ -26,7 +25,7 @@ import java.util.*;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class ScheduleServiceImpl implements ScheduleService {
 
     private final ScheduleRepository scheduleRepository;
@@ -35,10 +34,13 @@ public class ScheduleServiceImpl implements ScheduleService {
     private final TrackService trackService;
     private final TrainService trainService;
     private final MappingService mappingService;
-    private final MessagingService messagingService;
+    //   private final MessagingService messagingService;
+    @Autowired
     private final ScheduleMapper scheduleMapper;
-    private final TimetableScheduleMapper timetableScheduleMapper;
+    //   private final TimetableScheduleMapper timetableScheduleMapper;
+    @Autowired
     private final StationMapper stationMapper;
+    @Autowired
     private final TrainMapper trainMapper;
 
     private static final String ON_SCHEDULE = "On Schedule";
@@ -319,7 +321,7 @@ public class ScheduleServiceImpl implements ScheduleService {
             }
         }
     }
-
+/*
     @Override
     @Transactional
     public void delaySchedule(int id, int minutes) {
@@ -351,7 +353,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         messagingService.sendMessage();
     }
-
+/*
     @Override
     @Transactional
     public void cancelSchedule(int id) {
@@ -379,4 +381,6 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         return timetable;
     }
+
+ */
 }

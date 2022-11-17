@@ -3,7 +3,10 @@ package com.academy.controller;
 import com.academy.dto.ScheduleDto;
 import com.academy.dto.StationDto;
 import com.academy.dto.TrainDto;
-import com.academy.service.interfaces.*;
+import com.academy.service.interfaces.MappingService;
+import com.academy.service.interfaces.ScheduleService;
+import com.academy.service.interfaces.StationService;
+import com.academy.service.interfaces.TrainService;
 import com.academy.validation.TrainValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +18,25 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author : Volha Salash
  */
 @Controller
 @SessionAttributes("train")
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class TrainController {
-
+    @Autowired
     private final TrainService trainService;
+    @Autowired
     private final TrainValidator trainValidator;
+    @Autowired
     private final StationService stationService;
+    @Autowired
     private final MappingService mappingService;
+    @Autowired
     private final ScheduleService scheduleService;
-    private final MessagingService messagingService;
+    //   private final MessagingService messagingService;
 
     @GetMapping(value = "/trains")
     public ModelAndView allTrains() {
@@ -130,7 +136,7 @@ public class TrainController {
         modelAndView.addObject("schedulesList", scheduleDtoList);
         return modelAndView;
     }
-
+/*
     @PostMapping(value = "/trains/edit/schedule")
     public ModelAndView editTrainSchedule(@RequestParam Map<String, String> requestParams,
                                           @ModelAttribute("train") TrainDto trainDto) {
@@ -150,6 +156,8 @@ public class TrainController {
         messagingService.sendMessage();
         return modelAndView;
     }
+
+ */
 
     @GetMapping(value = "/trains/delete/{id}")
     public ModelAndView deleteTrain(@PathVariable("id") int id) {

@@ -17,10 +17,11 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class TrackServiceImpl implements TrackService {
 
     private final TrackRepository trackRepository;
+    @Autowired
     private final TrackMapper trackMapper;
 
     @Override

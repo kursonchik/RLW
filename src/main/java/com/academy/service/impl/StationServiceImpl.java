@@ -3,12 +3,10 @@ package com.academy.service.impl;
 import com.academy.dto.AreaDto;
 import com.academy.dto.StationDto;
 import com.academy.dto.TrainDto;
-import com.academy.exception.IllegalOperationException;
 import com.academy.mapper.StationMapper;
 import com.academy.mapper.TrainMapper;
 import com.academy.model.repository.interfaces.StationRepository;
 import com.academy.service.interfaces.AreaService;
-import com.academy.service.interfaces.MessagingService;
 import com.academy.service.interfaces.PathFinderService;
 import com.academy.service.interfaces.StationService;
 import lombok.RequiredArgsConstructor;
@@ -26,14 +24,15 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class StationServiceImpl implements StationService {
 
     private final StationRepository stationRepository;
     private final PathFinderService pathFinderService;
     private final AreaService areaService;
-    private final MessagingService messagingService;
+    //  private final MessagingService messagingService;
     private final StationMapper stationMapper;
+    @Autowired
     private final TrainMapper trainMapper;
 
     @Override
@@ -64,7 +63,7 @@ public class StationServiceImpl implements StationService {
         stationRepository.editStation(stationMapper.toEntity(stationDto));
         log.info("Edited station " + stationDto.getName());
     }
-
+/*
     @Override
     @Transactional
     public void deleteStation(StationDto stationDto) {
@@ -75,6 +74,8 @@ public class StationServiceImpl implements StationService {
         log.info("Deleted station " + stationDto.getName());
         messagingService.sendMessage();
     }
+
+ */
 
     @Override
     public LinkedList<StationDto> getRoute(String stationFrom, String stationTo) {

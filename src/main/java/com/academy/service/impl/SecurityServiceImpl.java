@@ -14,10 +14,11 @@ import org.springframework.stereotype.Service;
  * @author : Volha Salash
  */
 @Service
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@RequiredArgsConstructor
 public class SecurityServiceImpl implements SecurityService {
-
+    @Autowired
     private final AuthenticationManager authenticationManager;
+    @Autowired
     private final UserDetailsService userDetailsService;
 
     @Override

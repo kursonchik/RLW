@@ -1,13 +1,7 @@
 package com.academy.config;
 
 
-import org.apache.activemq.spring.ActiveMQConnectionFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.jms.core.JmsTemplate;
-
-import java.util.Collections;
-
+/*
 @Configuration
 public class MessagingConfig {
 
@@ -31,3 +25,5 @@ public class MessagingConfig {
         return template;
     }
 }
+
+ */

@@ -13,9 +13,6 @@ import java.util.Set;
  */
 @Entity
 @Data
-@Builder
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tickets implements Serializable {
