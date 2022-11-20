@@ -1,7 +1,7 @@
 package com.academy.model.entity;
 
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -15,13 +15,10 @@ import java.util.Set;
  * @author : Volha Salash
  */
 
-@Builder
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
+@RequiredArgsConstructor
 @Entity
-@Data
+@ToString(of = {"id", "username", "password", "email"})
 public class Users implements UserDetails {
 
     @Id
@@ -49,10 +46,10 @@ public class Users implements UserDetails {
     private String passwordConfirm;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role",
+    @JoinTable(name = "user_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    private Set<Roles> roles;
 
 
     @Override
@@ -76,9 +73,38 @@ public class Users implements UserDetails {
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
+    public Collection getAuthorities() {
         return getRoles();
     }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public Set<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Roles> roles) {
+        this.roles = roles;
+    }
 
 }

@@ -1,6 +1,8 @@
 package com.academy.model.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -11,11 +13,9 @@ import java.util.Set;
  * @author : Volha Salash
  */
 @Entity
-@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Stations implements Serializable {
     @Id
     @Column(name = "id")

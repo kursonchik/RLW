@@ -1,7 +1,10 @@
 package com.academy.model.entity;
 
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -12,12 +15,28 @@ import java.util.Date;
  * @author : Volha Salash
  */
 @Entity
-@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
 public class Schedules implements Serializable {
+
+        public Schedules(Stations station, Trains train) {
+                this.station = station;
+                this.train = train;
+        }
+
+        public Schedules(Stations station, Trains train, boolean direction) {
+                this.station = station;
+                this.train = train;
+                this.direction = direction;
+        }
+
+        public Schedules(Stations station, Trains train, String trainStatus, boolean direction) {
+                this.station = station;
+                this.train = train;
+                this.trainStatus = trainStatus;
+                this.direction = direction;
+        }
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,4 +68,5 @@ public class Schedules implements Serializable {
 
         @Column(name = "direction")
         private boolean direction;
-    }
+
+}
