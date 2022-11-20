@@ -3,6 +3,7 @@ package com.academy.mapper;
 import com.academy.dto.ScheduleDto;
 import com.academy.model.entity.Schedules;
 import org.mapstruct.*;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface ScheduleMapper {
-
+    ScheduleMapper INSTANCE = Mappers.getMapper(ScheduleMapper.class);
     @Mapping(source = "arrivalTime", target = "arrivalTime", dateFormat = "HH:mm")
     @Mapping(source = "departureTime", target = "departureTime", dateFormat = "HH:mm")
     ScheduleDto toDto(Schedules schedule);

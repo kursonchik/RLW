@@ -51,7 +51,7 @@ public class AreaRepositoryImpl implements AreaRepository {
 
     @Override
     public Areas getAreaBetweenStations(Stations stationFrom, Stations stationTo) {
-        Query query = entityManager.createQuery("SELECT s FROM SectionEntity s " +
+        Query query = entityManager.createQuery("SELECT s FROM Areas s " +
                 "WHERE s.stationFrom = :stationFrom AND s.stationTo = :stationTo");
         query.setParameter("stationFrom", stationFrom);
         query.setParameter("stationTo", stationTo);
@@ -60,10 +60,10 @@ public class AreaRepositoryImpl implements AreaRepository {
 
     @Override
     public List<Areas> getAreasByRoute(List<Stations> route) {
-        List<Areas> sectionsByRoute = new ArrayList<>();
+        List<Areas> areasByRoute = new ArrayList<>();
         for (int i = 0; i < route.size() - 1; i++) {
-            sectionsByRoute.add(getAreaBetweenStations(route.get(i), route.get(i + 1)));
+            areasByRoute.add(getAreaBetweenStations(route.get(i), route.get(i + 1)));
         }
-        return sectionsByRoute;
+        return areasByRoute;
     }
 }

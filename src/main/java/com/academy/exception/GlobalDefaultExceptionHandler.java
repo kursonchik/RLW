@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * @author : Volha Salash
  */
+
 @ControllerAdvice
 @Log4j2
 class GlobalDefaultExceptionHandler {

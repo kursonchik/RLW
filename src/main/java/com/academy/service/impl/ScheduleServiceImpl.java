@@ -34,10 +34,9 @@ public class ScheduleServiceImpl implements ScheduleService {
     private final TrackService trackService;
     private final TrainService trainService;
     private final MappingService mappingService;
-    //   private final MessagingService messagingService;
+
     @Autowired
     private final ScheduleMapper scheduleMapper;
-    //   private final TimetableScheduleMapper timetableScheduleMapper;
     @Autowired
     private final StationMapper stationMapper;
     @Autowired

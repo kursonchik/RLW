@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+
 @Repository
 public class MappingRepositoryImpl implements MappingRepository {
     @Autowired

@@ -3,7 +3,6 @@ package com.academy.model.repository.interfaces;
 import com.academy.model.entity.Passengers;
 import com.academy.model.entity.Trains;
 import com.academy.model.entity.Users;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

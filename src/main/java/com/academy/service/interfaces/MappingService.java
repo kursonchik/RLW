@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+
 public interface MappingService {
 
     MappingDto getMapping(int id);

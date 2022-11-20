@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 /**
  * @author : Volha Salash
  */
+
 @Service
 @RequiredArgsConstructor
 public class SecurityServiceImpl implements SecurityService {

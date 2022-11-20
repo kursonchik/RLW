@@ -53,14 +53,14 @@ public class AreaServiceImpl implements AreaService {
     @Transactional
     public void editArea(AreaDto areaDto) {
         areaRepository.editArea(areaMapper.toEntity(areaDto));
-        log.info("Edited section between " + areaDto.getStationFrom() + " and " + areaDto.getStationTo());
+        log.info("Edited area between " + areaDto.getStationFrom() + " and " + areaDto.getStationTo());
     }
 
     @Override
     @Transactional
     public void deleteArea(AreaDto areaDto) {
         areaRepository.deleteArea(areaMapper.toEntity(areaDto));
-        log.info("Deleted section between " + areaDto.getStationFrom() + " and " + areaDto.getStationTo());
+        log.info("Deleted area between " + areaDto.getStationFrom() + " and " + areaDto.getStationTo());
     }
 
     @Override

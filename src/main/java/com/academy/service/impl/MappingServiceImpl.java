@@ -7,7 +7,6 @@ import com.academy.mapper.MappingMapper;
 import com.academy.mapper.StationMapper;
 import com.academy.mapper.TrackMapper;
 import com.academy.model.entity.Mappings;
-import com.academy.model.repository.impl.MappingRepositoryImpl;
 import com.academy.model.repository.interfaces.MappingRepository;
 import com.academy.service.interfaces.MappingService;
 import com.academy.service.interfaces.TrackService;
@@ -22,6 +21,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+
 @Service
 @Log4j2
 @RequiredArgsConstructor

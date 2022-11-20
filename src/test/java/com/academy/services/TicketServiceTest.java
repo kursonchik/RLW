@@ -12,6 +12,7 @@ import com.academy.service.impl.TicketServiceImpl;
 import com.academy.service.interfaces.AreaService;
 import com.academy.service.interfaces.ScheduleService;
 import com.academy.service.interfaces.StationService;
+import com.academy.service.interfaces.TicketService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -81,7 +82,7 @@ public class TicketServiceTest {
                 .arrivalStation("ARRIVAL")
                 .departureTime("07:00")
                 .arrivalTime("10:00")
-                .date("08.11.2020")
+                .date("08.11.2022")
                 .price(0.0)
                 .build();
         ticketDto.getTrains().add(testTrain);

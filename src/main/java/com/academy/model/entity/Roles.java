@@ -1,7 +1,6 @@
 package com.academy.model.entity;
 
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,11 +10,8 @@ import java.util.Set;
  */
 @Entity
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
-public class Roles implements GrantedAuthority {
+public class Roles {
+    //    implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +25,11 @@ public class Roles implements GrantedAuthority {
     @ManyToMany(mappedBy = "roles")
     private Set<Users> users;
 
-
+/*
     @Override
     public String getAuthority() {
         return getName();
     }
+
+ */
 }

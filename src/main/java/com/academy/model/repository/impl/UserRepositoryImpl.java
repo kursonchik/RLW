@@ -1,4 +1,14 @@
 package com.academy.model.repository.impl;
+/*
+import com.academy.model.entity.Users;
+import com.academy.model.repository.interfaces.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+*/
 
 import com.academy.model.entity.Users;
 import com.academy.model.repository.interfaces.UserRepository;
@@ -12,6 +22,7 @@ import javax.persistence.PersistenceContext;
 /**
  * @author : Volha Salash
  */
+
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 

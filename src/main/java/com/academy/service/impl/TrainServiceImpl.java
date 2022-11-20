@@ -36,7 +36,6 @@ public class TrainServiceImpl implements TrainService {
     private final PassengerRepository passengerRepository;
     @Autowired
     private final PassengerMapper passengerMapper;
-    //   private final MessagingService messagingService;
 
     @Override
     public TrainDto getTrain(int id) {

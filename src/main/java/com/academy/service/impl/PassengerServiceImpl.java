@@ -4,8 +4,6 @@ import com.academy.dto.PassengerDto;
 import com.academy.dto.UserDto;
 import com.academy.mapper.PassengerMapper;
 import com.academy.mapper.UserMapper;
-import com.academy.model.entity.Passengers;
-import com.academy.model.repository.impl.PassengerRepositoryImpl;
 import com.academy.model.repository.interfaces.PassengerRepository;
 import com.academy.service.interfaces.PassengerService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

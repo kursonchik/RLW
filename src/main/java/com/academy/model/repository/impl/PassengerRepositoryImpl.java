@@ -4,7 +4,6 @@ import com.academy.model.entity.Passengers;
 import com.academy.model.entity.Trains;
 import com.academy.model.entity.Users;
 import com.academy.model.repository.interfaces.PassengerRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

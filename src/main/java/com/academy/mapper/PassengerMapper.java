@@ -3,6 +3,7 @@ package com.academy.mapper;
 import com.academy.dto.PassengerDto;
 import com.academy.model.entity.Passengers;
 import org.mapstruct.*;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface PassengerMapper {
+    PassengerMapper INSTANCE = Mappers.getMapper(PassengerMapper.class);
     /**
      * To dto passenger dto.
      *

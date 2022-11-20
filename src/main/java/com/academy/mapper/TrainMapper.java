@@ -4,6 +4,7 @@ import com.academy.dto.TrainDto;
 import com.academy.model.entity.Trains;
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface TrainMapper {
+    TrainMapper INSTANCE = Mappers.getMapper(TrainMapper.class);
 
     TrainDto toDto(Trains train);
 

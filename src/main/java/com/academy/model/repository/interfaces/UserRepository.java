@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 /**
  * @author : Volha Salash
  */
-
+@Repository
 public interface UserRepository {
     Users findUserByUsername(String username);
 

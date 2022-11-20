@@ -13,7 +13,7 @@ create TABLE IF NOT EXISTS roles (
   name VARCHAR(45) NULL,
   PRIMARY KEY (id));
 
-create TABLE IF NOT EXISTS user_role(
+create TABLE IF NOT EXISTS user_roles(
     user_id INT NOT NULL PRIMARY KEY,
     role_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id)
@@ -84,7 +84,7 @@ create TABLE IF NOT EXISTS tickets (
   is_breakpoint TINYINT(1) NULL,
   PRIMARY KEY (id));
 
-create TABLE IF NOT EXISTS shedules (
+create TABLE IF NOT EXISTS schedules (
   id INT NOT NULL AUTO_INCREMENT,
   station_id INT NOT NULL,
   train_id INT NOT NULL,
