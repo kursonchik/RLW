@@ -1,7 +1,6 @@
 package com.academy.model.entity;
 
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -18,7 +17,6 @@ import java.util.Set;
 
 @RequiredArgsConstructor
 @Entity
-@ToString(of = {"id", "username", "password", "email"})
 public class Users implements UserDetails {
 
     @Id

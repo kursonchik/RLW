@@ -20,7 +20,7 @@ import java.util.Map;
  * @author : Volha Salash
  */
 @Controller
-@SessionAttributes("station")
+// @SessionAttributes("station")
 @RequiredArgsConstructor
 public class StationController {
     @Autowired
@@ -117,7 +117,7 @@ public class StationController {
         modelAndView.setViewName("redirect:/stations");
         return modelAndView;
     }
-/*
+
     @GetMapping(value = "/stations/delete/{id}")
     public ModelAndView deleteStation(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -125,6 +125,4 @@ public class StationController {
         stationService.deleteStation(stationService.getStation(id));
         return modelAndView;
     }
-
- */
 }

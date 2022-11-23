@@ -1,11 +1,11 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.AreaMapper;
+import com.academy.converterMapper.interfaces.StationMapper;
+import com.academy.converterMapper.interfaces.TrackMapper;
 import com.academy.dto.AreaDto;
 import com.academy.dto.StationDto;
 import com.academy.dto.TrackDto;
-import com.academy.mapper.AreaMapper;
-import com.academy.mapper.StationMapper;
-import com.academy.mapper.TrackMapper;
 import com.academy.model.entity.Areas;
 import com.academy.model.repository.interfaces.AreaRepository;
 import com.academy.service.interfaces.AreaService;
@@ -27,9 +27,13 @@ import java.util.List;
 public class AreaServiceImpl implements AreaService {
     @Autowired
     private final AreaRepository areaRepository;
+    @Autowired
     private final MappingService mappingService;
+    @Autowired
     private final AreaMapper areaMapper;
+    @Autowired
     private final StationMapper stationMapper;
+    @Autowired
     private final TrackMapper trackMapper;
 
     @Override

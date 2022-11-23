@@ -1,5 +1,5 @@
 package com.academy.mapper;
-
+/*
 import com.academy.dto.AreaDto;
 import com.academy.model.entity.Areas;
 import org.mapstruct.InheritInverseConfiguration;
@@ -12,8 +12,8 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
-
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+/*
+@Mapper(componentModel = "spring",uses = {StationMapper.class, TrackMapper.class}, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface AreaMapper {
     AreaMapper INSTANCE = Mappers.getMapper(AreaMapper.class);
 
@@ -23,6 +23,7 @@ public interface AreaMapper {
      * @param area the areas entity
      * @return the area dto
      */
+/*
     AreaDto toDto(Areas area);
 
     /**
@@ -31,8 +32,11 @@ public interface AreaMapper {
      * @param areas the area entity list
      * @return the list
      */
+/*
     @InheritInverseConfiguration
     List<AreaDto> toDtoList(List<Areas> areas);
 
     Areas toEntity(AreaDto areaDto);
 }
+
+ */

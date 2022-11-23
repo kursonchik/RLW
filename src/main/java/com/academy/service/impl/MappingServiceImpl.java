@@ -1,11 +1,11 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.MappingMapper;
+import com.academy.converterMapper.interfaces.StationMapper;
+import com.academy.converterMapper.interfaces.TrackMapper;
 import com.academy.dto.MappingDto;
 import com.academy.dto.StationDto;
 import com.academy.dto.TrackDto;
-import com.academy.mapper.MappingMapper;
-import com.academy.mapper.StationMapper;
-import com.academy.mapper.TrackMapper;
 import com.academy.model.entity.Mappings;
 import com.academy.model.repository.interfaces.MappingRepository;
 import com.academy.service.interfaces.MappingService;
@@ -28,9 +28,13 @@ import java.util.List;
 public class MappingServiceImpl implements MappingService {
     @Autowired
     private final MappingRepository mappingRepository;
+    @Autowired
     private final TrackService trackService;
+    @Autowired
     private final MappingMapper mappingMapper;
+    @Autowired
     private final TrackMapper trackMapper;
+    @Autowired
     private final StationMapper stationMapper;
 
     @Override

@@ -1,12 +1,12 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.PassengerMapper;
+import com.academy.converterMapper.interfaces.TrackMapper;
+import com.academy.converterMapper.interfaces.TrainMapper;
 import com.academy.dto.PassengerDto;
 import com.academy.dto.ScheduleDto;
 import com.academy.dto.TrackDto;
 import com.academy.dto.TrainDto;
-import com.academy.mapper.PassengerMapper;
-import com.academy.mapper.TrackMapper;
-import com.academy.mapper.TrainMapper;
 import com.academy.model.repository.interfaces.PassengerRepository;
 import com.academy.model.repository.interfaces.TrainRepository;
 import com.academy.service.interfaces.TrainService;
@@ -27,12 +27,13 @@ import java.util.Set;
 @Log4j2
 @RequiredArgsConstructor
 public class TrainServiceImpl implements TrainService {
-
+    @Autowired
     private final TrainRepository trainRepository;
     @Autowired
     private final TrainMapper trainMapper;
     @Autowired
     private final TrackMapper trackMapper;
+    @Autowired
     private final PassengerRepository passengerRepository;
     @Autowired
     private final PassengerMapper passengerMapper;

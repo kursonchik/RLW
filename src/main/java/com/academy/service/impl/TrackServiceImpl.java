@@ -1,7 +1,7 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.TrackMapper;
 import com.academy.dto.TrackDto;
-import com.academy.mapper.TrackMapper;
 import com.academy.model.repository.interfaces.TrackRepository;
 import com.academy.service.interfaces.TrackService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +19,7 @@ import java.util.List;
 @Log4j2
 @RequiredArgsConstructor
 public class TrackServiceImpl implements TrackService {
-
+    @Autowired
     private final TrackRepository trackRepository;
     @Autowired
     private final TrackMapper trackMapper;

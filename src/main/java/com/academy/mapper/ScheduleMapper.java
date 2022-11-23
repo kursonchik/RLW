@@ -1,5 +1,5 @@
 package com.academy.mapper;
-
+/*
 import com.academy.dto.ScheduleDto;
 import com.academy.model.entity.Schedules;
 import org.mapstruct.*;
@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+/*
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface ScheduleMapper {
     ScheduleMapper INSTANCE = Mappers.getMapper(ScheduleMapper.class);
@@ -26,3 +27,5 @@ public interface ScheduleMapper {
     @InheritInverseConfiguration
     List<Schedules> toEntityList(List<ScheduleDto> scheduleDtoList);
 }
+
+ */

@@ -1,5 +1,5 @@
 package com.academy.mapper;
-
+/*
 import com.academy.dto.RoleDto;
 import com.academy.model.entity.Roles;
 import org.mapstruct.InjectionStrategy;
@@ -9,7 +9,8 @@ import org.mapstruct.factory.Mappers;
 /**
  * @author : Volha Salash
  */
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+/*
+@Mapper(componentModel = "spring",uses = {UserMapper.class}, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface RoleMapper {
     RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
     RoleDto toDto(Roles role);
@@ -17,3 +18,5 @@ public interface RoleMapper {
     Roles toEntity(RoleDto roleDto);
 }
 
+
+ */

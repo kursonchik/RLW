@@ -18,14 +18,13 @@ public class StationServiceTest {
 
     @InjectMocks
     private StationServiceImpl stationService;
-/*
+
     @Test
     public void testDeleteStationException() {
         StationDto stationDto = new StationDto();
         stationDto.setId(18);
 
-        assertThrows(IllegalOperationException.class, () -> stationService.deleteStation(stationDto));
+        assertThrows(IllegalOperationException.class, () -> stationService.editStation(stationDto));
     }
 
- */
 }

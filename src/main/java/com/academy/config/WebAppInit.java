@@ -4,6 +4,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.context.support.GenericWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
@@ -12,18 +13,18 @@ import javax.servlet.ServletRegistration;
 
 public class WebAppInit implements WebApplicationInitializer {
 
-    @Override
-    public void onStartup(final ServletContext sc) throws ServletException {
-
-        AnnotationConfigWebApplicationContext root =
-                new AnnotationConfigWebApplicationContext();
-
-        root.scan("com.academy");
-        sc.addListener(new ContextLoaderListener(root));
-
-        ServletRegistration.Dynamic appServlet =
-                sc.addServlet("mvc", new DispatcherServlet(new GenericWebApplicationContext()));
-        appServlet.setLoadOnStartup(1);
-        appServlet.addMapping("/");
+    public void onStartup(ServletContext servletContext) {
+        AnnotationConfigWebApplicationContext webCtx = new AnnotationConfigWebApplicationContext();
+        webCtx.register(WebConfig.class);
+        webCtx.register(PersistenceJPAConfig.class);
+        webCtx.register(WebSecurityConfig.class);
+        webCtx.setServletContext(servletContext);
+        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(webCtx));
+        servlet.setLoadOnStartup(1);
+        servlet.addMapping("/");
+        servletContext.addListener(new ContextLoaderListener(webCtx));
+        servletContext.addFilter("securityFilter",
+                        new DelegatingFilterProxy("springSecurityFilterChain"))
+                .addMappingForUrlPatterns(null, false, "/*");
     }
 }

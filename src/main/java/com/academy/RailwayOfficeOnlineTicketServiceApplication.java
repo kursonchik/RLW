@@ -8,9 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-@ComponentScan({"com.academy"})
-@EntityScan("com.academy.model")
-@EnableJpaRepositories("com.academy.model.repository")
+//@ComponentScan({"com.academy"})
+@EnableJpaRepositories
+//@SpringBootApplication
 public class RailwayOfficeOnlineTicketServiceApplication {
 
     public static void main(String[] args) {

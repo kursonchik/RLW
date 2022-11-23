@@ -1,10 +1,10 @@
 package com.academy.services;
 
+import com.academy.converterMapper.interfaces.TicketMapper;
+import com.academy.converterMapper.interfaces.TrainMapper;
 import com.academy.dto.PassengerDto;
 import com.academy.dto.TicketDto;
 import com.academy.dto.TrainDto;
-import com.academy.mapper.TicketMapper;
-import com.academy.mapper.TrainMapper;
 import com.academy.model.entity.Tickets;
 import com.academy.model.entity.Trains;
 import com.academy.model.repository.interfaces.TicketRepository;
@@ -12,7 +12,6 @@ import com.academy.service.impl.TicketServiceImpl;
 import com.academy.service.interfaces.AreaService;
 import com.academy.service.interfaces.ScheduleService;
 import com.academy.service.interfaces.StationService;
-import com.academy.service.interfaces.TicketService;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,6 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 /**

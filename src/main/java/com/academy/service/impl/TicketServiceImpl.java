@@ -1,9 +1,9 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.PassengerMapper;
+import com.academy.converterMapper.interfaces.TicketMapper;
+import com.academy.converterMapper.interfaces.TrainMapper;
 import com.academy.dto.*;
-import com.academy.mapper.PassengerMapper;
-import com.academy.mapper.TicketMapper;
-import com.academy.mapper.TrainMapper;
 import com.academy.model.repository.interfaces.TicketRepository;
 import com.academy.service.interfaces.AreaService;
 import com.academy.service.interfaces.ScheduleService;
@@ -28,12 +28,14 @@ import java.util.List;
 @Service
 @Log4j2
 @RequiredArgsConstructor
-
 public class TicketServiceImpl implements TicketService {
     @Autowired
     private final TicketRepository ticketRepository;
+    @Autowired
     private final AreaService areaService;
+    @Autowired
     private final StationService stationService;
+    @Autowired
     private final ScheduleService scheduleService;
     @Autowired
     private final TicketMapper ticketMapper;

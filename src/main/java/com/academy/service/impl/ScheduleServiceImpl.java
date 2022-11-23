@@ -1,10 +1,10 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.ScheduleMapper;
+import com.academy.converterMapper.interfaces.StationMapper;
+import com.academy.converterMapper.interfaces.TrainMapper;
 import com.academy.dto.*;
 import com.academy.exception.TrainsNotFoundException;
-import com.academy.mapper.ScheduleMapper;
-import com.academy.mapper.StationMapper;
-import com.academy.mapper.TrainMapper;
 import com.academy.model.entity.Schedules;
 import com.academy.model.repository.interfaces.ScheduleRepository;
 import com.academy.service.interfaces.*;
@@ -27,14 +27,18 @@ import java.util.*;
 @Log4j2
 @RequiredArgsConstructor
 public class ScheduleServiceImpl implements ScheduleService {
-
+    @Autowired
     private final ScheduleRepository scheduleRepository;
+    @Autowired
     private final AreaService areaService;
+    @Autowired
     private final StationService stationService;
+    @Autowired
     private final TrackService trackService;
+    @Autowired
     private final TrainService trainService;
+    @Autowired
     private final MappingService mappingService;
-
     @Autowired
     private final ScheduleMapper scheduleMapper;
     @Autowired
@@ -352,7 +356,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         messagingService.sendMessage();
     }
-/*
+
     @Override
     @Transactional
     public void cancelSchedule(int id) {

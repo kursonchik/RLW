@@ -1,5 +1,5 @@
 package com.academy.mapper;
-
+/*
 import com.academy.dto.StationDto;
 import com.academy.model.entity.Stations;
 import org.mapstruct.InjectionStrategy;
@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
+/*
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface StationMapper {
     StationMapper INSTANCE = Mappers.getMapper(StationMapper.class);
@@ -23,3 +24,5 @@ public interface StationMapper {
     List<Stations> toEntityList(List<StationDto> stationDtoList);
 
 }
+
+ */

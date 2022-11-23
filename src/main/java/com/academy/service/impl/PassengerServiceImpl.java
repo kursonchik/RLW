@@ -1,9 +1,9 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.PassengerMapper;
+import com.academy.converterMapper.interfaces.UserMapper;
 import com.academy.dto.PassengerDto;
 import com.academy.dto.UserDto;
-import com.academy.mapper.PassengerMapper;
-import com.academy.mapper.UserMapper;
 import com.academy.model.repository.interfaces.PassengerRepository;
 import com.academy.service.interfaces.PassengerService;
 import lombok.RequiredArgsConstructor;

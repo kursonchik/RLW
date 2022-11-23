@@ -2,6 +2,7 @@ package com.academy.service.interfaces;
 
 import com.academy.dto.StationDto;
 import com.academy.dto.TrainDto;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -21,7 +22,10 @@ public interface StationService {
 
     void editStation(StationDto stationDto);
 
- //   void deleteStation(StationDto stationDto);
+// void deleteStation(StationDto stationDto);
+
+    @Transactional
+    void deleteStation(StationDto stationDto);
 
     LinkedList<StationDto> getRoute(String stationFrom, String stationTo);
 

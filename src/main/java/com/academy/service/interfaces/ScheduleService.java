@@ -46,9 +46,9 @@ public interface ScheduleService {
 
     void createEmptyScheduleForStation(StationDto stationDto, int trackId);
 
-    //   void delaySchedule(int id, int minutes);
+ //   void delaySchedule(int id, int minutes);
 
-    //   void cancelSchedule(int id);
+ //   void cancelSchedule(int id);
 
-    //   Map<String, List<TimetableScheduleDto>> getTimetableMap();
+    // Map<String, List<TimetableScheduleDto>> getTimetableMap();
 }

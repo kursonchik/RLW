@@ -6,6 +6,7 @@ import com.academy.service.interfaces.AreaService;
 import com.academy.service.interfaces.PathFinderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -17,7 +18,7 @@ import java.util.*;
 @Log4j2
 @RequiredArgsConstructor
 public class PathFinderServiceImpl implements PathFinderService {
-
+    @Autowired
     private final AreaService areaService;
     private List<AreaDto> areas;
     private Set<StationDto> settledStations;

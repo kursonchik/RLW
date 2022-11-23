@@ -1,5 +1,5 @@
 package com.academy.mapper;
-
+/*
 import com.academy.dto.PassengerDto;
 import com.academy.model.entity.Passengers;
 import org.mapstruct.*;
@@ -10,7 +10,8 @@ import java.util.List;
 /**
  * @author : Volha Salash
  */
-@Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
+/*
+@Mapper(componentModel = "spring",uses = {UserMapper.class, TicketMapper.class}, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface PassengerMapper {
     PassengerMapper INSTANCE = Mappers.getMapper(PassengerMapper.class);
     /**
@@ -19,16 +20,17 @@ public interface PassengerMapper {
      * @param passenger the passenger entity
      * @return the passenger dto
      */
+/*
     @Mapping(source = "birthDate", target = "birthDate", dateFormat = "dd.MM.yyyy")
     PassengerDto toDto(Passengers passenger);
-
+/*
     /**
      * To dto list list.
      *
      * @param passengers the passenger entity list
      * @return the list
      */
-
+/*
     @InheritConfiguration
     List<PassengerDto> toDtoList(List<Passengers> passengers);
 
@@ -38,6 +40,8 @@ public interface PassengerMapper {
      * @param passengerDto the passenger dto list
      * @return the list
      */
+/*
     @InheritInverseConfiguration
     Passengers toEntity(PassengerDto passengerDto);
 }
+*/

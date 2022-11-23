@@ -1,7 +1,7 @@
 package com.academy.service.impl;
 
+import com.academy.converterMapper.interfaces.UserMapper;
 import com.academy.dto.UserDto;
-import com.academy.mapper.UserMapper;
 import com.academy.model.entity.Users;
 import com.academy.model.repository.interfaces.RoleRepository;
 import com.academy.model.repository.interfaces.UserRepository;
@@ -25,9 +25,11 @@ import java.util.Collections;
 @Log4j2
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-
+    @Autowired
     private final UserRepository userRepository;
+    @Autowired
     private final RoleRepository roleRepository;
+    @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     @Autowired
     private final UserMapper userMapper;
