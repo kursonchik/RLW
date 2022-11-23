@@ -33,7 +33,7 @@
             <tr>
                 <th>Track</th>
                 <th>Name</th>
-                <th>Capacity</th>
+                <th>Seats</th>
                 <th>Route</th>
                 <th>Actions</th>
             </tr>
@@ -43,7 +43,7 @@
                 <tr>
                     <td>${train.track.id}</td>
                     <td>${train.name}</td>
-                    <td>${train.capacity}</td>
+                    <td>${train.seats}</td>
                     <td>
                         <c:if test="${!empty endpointsList.get(trainsList.indexOf(train))}">
                             ${endpointsList.get(trainsList.indexOf(train)).get(0).name} &LongRightArrow;

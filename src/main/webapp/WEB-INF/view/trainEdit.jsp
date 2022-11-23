@@ -48,10 +48,10 @@
 <div class="container">
     <h2 class="form-heading text-center">Edit train data:</h2>
     <div class="jumbotron">
-        <c:if test="${empty train.track.id || empty train.name || empty train.capacity}">
+        <c:if test="${empty train.track.id || empty train.name || empty train.seats}">
             <c:url value="/trains/add" var="var"/>
         </c:if>
-        <c:if test="${!empty train.track.id && !empty train.name && !empty train.capacity}">
+        <c:if test="${!empty train.track.id && !empty train.name && !empty train.seats}">
             <c:url value="/trains/edit" var="var"/>
         </c:if>
         <form:form action="${var}" modelAttribute="train" method="POST"
@@ -94,16 +94,16 @@
                     </div>
                 </div>
             </spring:bind>
-            <spring:bind path="capacity">
+            <spring:bind path="seats">
                 <div class="form-group col-sm-4 offset-sm-4">
-                    <label for="capacity">Capacity</label>
-                    <c:if test="${empty train.capacity}">
-                        <form:input path="capacity" type="number" class="form-control"
-                                    id="capacity" min="10" max="50" required="true"/>
+                    <label for="seats">Seats</label>
+                    <c:if test="${empty train.seats}">
+                        <form:input path="seats" type="number" class="form-control"
+                                    id="seats" min="10" max="50" required="true"/>
                     </c:if>
-                    <c:if test="${!empty train.capacity}">
-                        <form:input path="capacity" type="number" class="form-control"
-                                    id="capacity" value="${train.capacity}" min="10" max="50" required="true"/>
+                    <c:if test="${!empty train.seats}">
+                        <form:input path="seats" type="number" class="form-control"
+                                    id="seats" value="${train.seats}" min="10" max="50" required="true"/>
                     </c:if>
                     <div class="invalid-feedback">Please enter a number from 10 to 50.</div>
                 </div>
