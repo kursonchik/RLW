@@ -15,41 +15,36 @@ import java.util.List;
 @Component
 public class MappingMapperImpl implements MappingMapper {
 
-    private final StationMapper stationMapper;
-    private final TrackMapper trackMapper;
-
     @Autowired
-    public MappingMapperImpl(StationMapper stationMapper, TrackMapper trackMapper) {
-
-        this.stationMapper = stationMapper;
-        this.trackMapper = trackMapper;
-    }
+    private StationMapper stationMapper;
+    @Autowired
+    private TrackMapper trackMapper;
 
     @Override
     public MappingDto toDto(Mappings mapping) {
-        if (mapping == null) {
+        if ( mapping == null ) {
             return null;
         }
 
         MappingDto mappingDto = new MappingDto();
 
-        mappingDto.setId(mapping.getId());
-        mappingDto.setStation(stationMapper.toDto(mapping.getStation()));
-        mappingDto.setTrack(trackMapper.toDto(mapping.getTrack()));
-        mappingDto.setStationOrder(mapping.getStationOrder());
+        mappingDto.setId( mapping.getId() );
+        mappingDto.setStation( stationMapper.toDto( mapping.getStation() ) );
+        mappingDto.setTrack( trackMapper.toDto( mapping.getTrack() ) );
+        mappingDto.setStationOrder( mapping.getStationOrder() );
 
         return mappingDto;
     }
 
     @Override
     public List<MappingDto> toDtoList(List<Mappings> mappings) {
-        if (mappings == null) {
+        if ( mappings == null ) {
             return null;
         }
 
-        List<MappingDto> list = new ArrayList<MappingDto>(mappings.size());
-        for (Mappings mappings1 : mappings) {
-            list.add(toDto(mappings1));
+        List<MappingDto> list = new ArrayList<MappingDto>( mappings.size() );
+        for ( Mappings mappingEntity : mappings ) {
+            list.add( toDto( mappingEntity ) );
         }
 
         return list;
@@ -57,17 +52,17 @@ public class MappingMapperImpl implements MappingMapper {
 
     @Override
     public Mappings toEntity(MappingDto mappingDto) {
-        if (mappingDto == null) {
+        if ( mappingDto == null ) {
             return null;
         }
 
-        Mappings mappings = new Mappings();
+        Mappings mappingEntity = new Mappings();
 
-        mappings.setId(mappingDto.getId());
-        mappings.setStation(stationMapper.toEntity(mappingDto.getStation()));
-        mappings.setTrack(trackMapper.toEntity(mappingDto.getTrack()));
-        mappings.setStationOrder(mappingDto.getStationOrder());
+        mappingEntity.setId( mappingDto.getId() );
+        mappingEntity.setStation( stationMapper.toEntity( mappingDto.getStation() ) );
+        mappingEntity.setTrack( trackMapper.toEntity( mappingDto.getTrack() ) );
+        mappingEntity.setStationOrder( mappingDto.getStationOrder() );
 
-        return mappings;
+        return mappingEntity;
     }
 }

@@ -11,34 +11,26 @@ import com.academy.validation.PassengerValidator;
 import com.academy.validation.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
  * @author : Volha Salash
  */
 @Controller
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
-    @Autowired
+
     private final UserService userService;
-    @Autowired
     private final SecurityService securityService;
-    @Autowired
     private final UserValidator userValidator;
-    @Autowired
     private final PassengerValidator passengerValidator;
-    @Autowired
     private final PassengerService passengerService;
-    @Autowired
     private final TicketService ticketService;
 
     @GetMapping("/registration")

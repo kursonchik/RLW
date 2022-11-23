@@ -18,10 +18,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * @author : Volha Salash
- */
-
 @Configuration
 @EnableTransactionManagement
 @ComponentScan(basePackages = "com.academy")

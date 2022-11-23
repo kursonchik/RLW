@@ -26,5 +26,5 @@ public class UserDto implements Serializable {
 
     private String passwordConfirm;
 
-    private Set<RoleDto> roleDto;
+    private Set<RoleDto> roles;
 }

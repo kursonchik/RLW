@@ -13,9 +13,9 @@ import org.springframework.validation.Validator;
  * @author : Volha Salash
  */
 @Component
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class StationValidator implements Validator {
-    @Autowired
+
     private final StationService stationService;
 
     @Override

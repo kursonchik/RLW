@@ -2,6 +2,7 @@ package com.academy.service.impl;
 
 import com.academy.converterMapper.interfaces.ScheduleMapper;
 import com.academy.converterMapper.interfaces.StationMapper;
+import com.academy.converterMapper.interfaces.TimetableScheduleMapper;
 import com.academy.converterMapper.interfaces.TrainMapper;
 import com.academy.dto.*;
 import com.academy.exception.TrainsNotFoundException;
@@ -45,6 +46,8 @@ public class ScheduleServiceImpl implements ScheduleService {
     private final StationMapper stationMapper;
     @Autowired
     private final TrainMapper trainMapper;
+    @Autowired
+    private final TimetableScheduleMapper timetableScheduleMapper;
 
     private static final String ON_SCHEDULE = "On Schedule";
     private static final String DELAYED = "Delayed";
@@ -324,7 +327,7 @@ public class ScheduleServiceImpl implements ScheduleService {
             }
         }
     }
-/*
+
     @Override
     @Transactional
     public void delaySchedule(int id, int minutes) {
@@ -354,7 +357,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                 editSchedule(scheduleDto);
             }
         }
-        messagingService.sendMessage();
+
     }
 
     @Override
@@ -372,7 +375,6 @@ public class ScheduleServiceImpl implements ScheduleService {
                 editSchedule(scheduleDto);
             }
         }
-        messagingService.sendMessage();
     }
 
     @Override
@@ -384,6 +386,4 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
         return timetable;
     }
-
- */
 }

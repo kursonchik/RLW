@@ -16,9 +16,9 @@ import java.util.Date;
  * @author : Volha Salash
  */
 @Component
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TicketValidator implements Validator {
-    @Autowired
+
     private final ScheduleService scheduleService;
 
     @Override

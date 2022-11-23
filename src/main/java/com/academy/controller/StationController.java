@@ -20,18 +20,14 @@ import java.util.Map;
  * @author : Volha Salash
  */
 @Controller
-// @SessionAttributes("station")
-@RequiredArgsConstructor
+@SessionAttributes("station")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class StationController {
-    @Autowired
+
     private final StationService stationService;
-    @Autowired
     private final MappingService mappingService;
-    @Autowired
     private final AreaService areaService;
-    @Autowired
     private final ScheduleService scheduleService;
-    @Autowired
     private final StationValidator stationValidator;
 
     @GetMapping(value = "/stations")

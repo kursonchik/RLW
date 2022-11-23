@@ -14,42 +14,38 @@ import java.util.List;
 @Component
 public class AreaMapperImpl implements AreaMapper {
 
-    private final StationMapper stationMapper;
-    private final TrackMapper trackMapper;
-
     @Autowired
-    public AreaMapperImpl(StationMapper stationMapper, TrackMapper trackMapper) {
-
-        this.stationMapper = stationMapper;
-        this.trackMapper = trackMapper;
-    }
+    private StationMapper stationMapper;
+    @Autowired
+    private TrackMapper trackMapper;
 
     @Override
     public AreaDto toDto(Areas area) {
-        if (area == null) {
+        if ( area == null ) {
             return null;
         }
+
         AreaDto areaDto = new AreaDto();
 
-        areaDto.setId(area.getId());
-        areaDto.setStationFrom(stationMapper.toDto(area.getStationFrom()));
-        areaDto.setStationTo(stationMapper.toDto(area.getStationTo()));
-        areaDto.setDistance(area.getDistance());
-        areaDto.setTrack(trackMapper.toDto(area.getTrack()));
-        areaDto.setDirection(area.isDirection());
+        areaDto.setId( area.getId() );
+        areaDto.setStationFrom( stationMapper.toDto( area.getStationFrom() ) );
+        areaDto.setStationTo( stationMapper.toDto( area.getStationTo() ) );
+        areaDto.setDistance( area.getDistance() );
+        areaDto.setTrack( trackMapper.toDto( area.getTrack() ) );
+        areaDto.setDirection( area.isDirection() );
 
         return areaDto;
     }
 
     @Override
     public List<AreaDto> toDtoList(List<Areas> areas) {
-        if (areas == null) {
+        if ( areas == null ) {
             return null;
         }
 
-        List<AreaDto> list = new ArrayList<AreaDto>(areas.size());
-        for (Areas areas1 : areas) {
-            list.add(toDto(areas1));
+        List<AreaDto> list = new ArrayList<AreaDto>( areas.size() );
+        for ( Areas area : areas ) {
+            list.add( toDto( area ) );
         }
 
         return list;
@@ -57,19 +53,19 @@ public class AreaMapperImpl implements AreaMapper {
 
     @Override
     public Areas toEntity(AreaDto areaDto) {
-        if (areaDto == null) {
+        if ( areaDto == null ) {
             return null;
         }
 
-        Areas areas = new Areas();
+        Areas areaEntity = new Areas();
 
-        areas.setId(areaDto.getId());
-        areas.setStationFrom(stationMapper.toEntity(areaDto.getStationFrom()));
-        areas.setStationTo(stationMapper.toEntity(areaDto.getStationTo()));
-        areas.setDistance(areaDto.getDistance());
-        areas.setTrack(trackMapper.toEntity(areaDto.getTrack()));
-        areas.setDirection(areaDto.isDirection());
+        areaEntity.setId( areaDto.getId() );
+        areaEntity.setStationFrom( stationMapper.toEntity( areaDto.getStationFrom() ) );
+        areaEntity.setStationTo( stationMapper.toEntity( areaDto.getStationTo() ) );
+        areaEntity.setDistance( areaDto.getDistance() );
+        areaEntity.setTrack( trackMapper.toEntity( areaDto.getTrack() ) );
+        areaEntity.setDirection( areaDto.isDirection() );
 
-        return areas;
+        return areaEntity;
     }
 }

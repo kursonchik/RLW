@@ -15,11 +15,9 @@ import org.springframework.web.servlet.view.JstlView;
 /**
  * @author : Volha Salash
  */
-@EnableWebMvc
-@Configuration
-@ComponentScan(basePackages = {"com.academy"})
-public class WebConfig implements WebMvcConfigurer {
 
+@Configuration
+public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public ViewResolver viewResolver() {

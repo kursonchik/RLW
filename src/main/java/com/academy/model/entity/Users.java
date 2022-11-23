@@ -1,6 +1,8 @@
 package com.academy.model.entity;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -14,7 +16,7 @@ import java.util.Set;
  * @author : Volha Salash
  */
 
-
+@Getter @Setter
 @RequiredArgsConstructor
 @Entity
 public class Users implements UserDetails {

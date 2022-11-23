@@ -23,22 +23,19 @@ import java.util.Collections;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserServiceImpl implements UserService {
-    @Autowired
+
     private final UserRepository userRepository;
-    @Autowired
     private final RoleRepository roleRepository;
-    @Autowired
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    @Autowired
     private final UserMapper userMapper;
 
     @Override
     @Transactional
     public void save(UserDto userDto) {
         Users user = userMapper.toEntity(userDto);
-        user.setPassword(user.getPassword());
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(Collections.singleton(roleRepository.findRoleByName("ROLE_USER")));
         userRepository.addUser(user);
         log.info("Created new user " + user.getUsername());
@@ -54,7 +51,6 @@ public class UserServiceImpl implements UserService {
         return userMapper.toDto(userRepository.findUserByEmail(email));
     }
 
-
     @Override
     public String getCurrentUserName() {
         String currentUserName = null;
@@ -64,5 +60,4 @@ public class UserServiceImpl implements UserService {
         }
         return currentUserName;
     }
-
 }

@@ -15,65 +15,60 @@ import java.util.Set;
 @Component
 public class RoleMapperImpl implements RoleMapper {
 
-    private final UserMapper userMapper;
-
     @Autowired
-    public RoleMapperImpl(UserMapper userMapper) {
-
-        this.userMapper = userMapper;
-    }
+    private UserMapper userMapper;
 
     @Override
     public RoleDto toDto(Roles role) {
-        if (role == null) {
+        if ( role == null ) {
             return null;
         }
 
         RoleDto roleDto = new RoleDto();
 
-        roleDto.setId(role.getId());
-        roleDto.setName(role.getName());
-        roleDto.setUsers(usersSetToUserDtoSet(role.getUsers()));
+        roleDto.setId( role.getId() );
+        roleDto.setName( role.getName() );
+        roleDto.setUsers( userEntitySetToUserDtoSet( role.getUsers() ) );
 
         return roleDto;
     }
 
     @Override
     public Roles toEntity(RoleDto roleDto) {
-        if (roleDto == null) {
+        if ( roleDto == null ) {
             return null;
         }
 
-        Roles roles = new Roles();
+        Roles roleEntity = new Roles();
 
-        roles.setUsers(userDtoSetToUsersSet(roleDto.getUsers()));
-        roles.setId(roleDto.getId());
-        roles.setName(roleDto.getName());
+        roleEntity.setId( roleDto.getId() );
+        roleEntity.setName( roleDto.getName() );
+        roleEntity.setUsers( userDtoSetToUserEntitySet( roleDto.getUsers() ) );
 
-        return roles;
+        return roleEntity;
     }
 
-    protected Set<UserDto> usersSetToUserDtoSet(Set<Users> set) {
-        if (set == null) {
+    protected Set<UserDto> userEntitySetToUserDtoSet(Set<Users> set) {
+        if ( set == null ) {
             return null;
         }
 
-        Set<UserDto> set1 = new HashSet<UserDto>(Math.max((int) (set.size() / .75f) + 1, 16));
-        for (Users users : set) {
-            set1.add(userMapper.toDto(users));
+        Set<UserDto> set1 = new HashSet<UserDto>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
+        for ( Users userEntity : set ) {
+            set1.add( userMapper.toDto( userEntity ) );
         }
 
         return set1;
     }
 
-    protected Set<Users> userDtoSetToUsersSet(Set<UserDto> set) {
-        if (set == null) {
+    protected Set<Users> userDtoSetToUserEntitySet(Set<UserDto> set) {
+        if ( set == null ) {
             return null;
         }
 
-        Set<Users> set1 = new HashSet<Users>(Math.max((int) (set.size() / .75f) + 1, 16));
-        for (UserDto userDto : set) {
-            set1.add(userMapper.toEntity(userDto));
+        Set<Users> set1 = new HashSet<Users>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
+        for ( UserDto userDto : set ) {
+            set1.add( userMapper.toEntity( userDto ) );
         }
 
         return set1;

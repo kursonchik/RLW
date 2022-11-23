@@ -24,17 +24,13 @@ import java.util.List;
  */
 @Controller
 @SessionAttributes("train")
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class TrainController {
-    @Autowired
+
     private final TrainService trainService;
-    @Autowired
     private final TrainValidator trainValidator;
-    @Autowired
     private final StationService stationService;
-    @Autowired
     private final MappingService mappingService;
-    @Autowired
     private final ScheduleService scheduleService;
     //   private final MessagingService messagingService;
 
