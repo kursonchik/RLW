@@ -24,17 +24,13 @@ import java.util.List;
 
 @Service
 @Log4j2
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class MappingServiceImpl implements MappingService {
-    @Autowired
+
     private final MappingRepository mappingRepository;
-    @Autowired
     private final TrackService trackService;
-    @Autowired
     private final MappingMapper mappingMapper;
-    @Autowired
     private final TrackMapper trackMapper;
-    @Autowired
     private final StationMapper stationMapper;
 
     @Override

@@ -1,20 +1,5 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ include file="common/header.jsp" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Create an account</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="${pageContext.request.contextPath}/assets/favicon.ico" rel="icon" type="image/x-icon"/>
-</head>
-
-<body>
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #491262">
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -45,7 +30,7 @@
                         <c:set var="usernameError"><form:errors path="username"/></c:set>
                         <c:if test="${!empty usernameError}">${usernameError}</c:if>
                         <c:if test="${empty usernameError}">
-                            Please enter a valid username containing from 6 to 32 characters.
+                            Please enter a valid username containing from 4 to 32 characters.
                         </c:if>
                     </div>
                 </div>
@@ -94,11 +79,6 @@
     </form:form>
 </div>
 
-<footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">© 2022 Copyright:
-        <a href="#">IT academy</a>
-    </div>
-</footer>
 
 <script>
     (function () {
@@ -121,5 +101,5 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+
+<%@ include file="common/footer.jsp" %>

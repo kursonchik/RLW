@@ -17,13 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PassengerController {
-    @Autowired
-    private final PassengerService passengerService;
-    @Autowired
-    private final TrainService trainService;
-    @Autowired
-    private final PassengerValidator passengerValidator;
 
+    private final PassengerService passengerService;
+    private final TrainService trainService;
+    private final PassengerValidator passengerValidator;
 
     @GetMapping(value = "/passengers")
     public ModelAndView allPassengers() {

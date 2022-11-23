@@ -23,17 +23,13 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class AreaServiceImpl implements AreaService {
-    @Autowired
+
     private final AreaRepository areaRepository;
-    @Autowired
     private final MappingService mappingService;
-    @Autowired
     private final AreaMapper areaMapper;
-    @Autowired
     private final StationMapper stationMapper;
-    @Autowired
     private final TrackMapper trackMapper;
 
     @Override

@@ -15,8 +15,6 @@ import java.util.Set;
  * @author : Volha Salash
  */
 
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

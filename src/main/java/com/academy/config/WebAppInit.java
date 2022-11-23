@@ -1,5 +1,5 @@
 package com.academy.config;
-
+/*
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -26,3 +26,5 @@ public class WebAppInit implements WebApplicationInitializer {
                 .addMappingForUrlPatterns(null, false, "/*");
     }
 }
+
+ */

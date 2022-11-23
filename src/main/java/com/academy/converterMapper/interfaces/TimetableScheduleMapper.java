@@ -2,9 +2,6 @@ package com.academy.converterMapper.interfaces;
 
 import com.academy.dto.ScheduleDto;
 import com.academy.dto.TimetableScheduleDto;
-import org.mapstruct.InheritConfiguration;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 
 import java.util.List;
 

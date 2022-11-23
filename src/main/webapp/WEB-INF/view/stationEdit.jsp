@@ -21,7 +21,7 @@
 
 <body>
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #491262">
-    <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">SBB</a>
+    <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -102,11 +102,6 @@
     </div>
 </div>
 
-<footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">© 2022 Copyright:
-        <a href="#">IT academy</a>
-    </div>
-</footer>
 
 <script>
     (function () {
@@ -129,5 +124,4 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+<%@ include file="common/footer.jsp" %>

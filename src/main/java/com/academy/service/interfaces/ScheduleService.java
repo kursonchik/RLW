@@ -49,17 +49,10 @@ public interface ScheduleService {
 
     void createEmptyScheduleForStation(StationDto stationDto, int trackId);
 
-    @Transactional
     void delaySchedule(int id, int minutes);
 
-    @Transactional
     void cancelSchedule(int id);
 
     Map<String, List<TimetableScheduleDto>> getTimetableMap();
 
-    //   void delaySchedule(int id, int minutes);
-
- //   void cancelSchedule(int id);
-
-    // Map<String, List<TimetableScheduleDto>> getTimetableMap();
 }

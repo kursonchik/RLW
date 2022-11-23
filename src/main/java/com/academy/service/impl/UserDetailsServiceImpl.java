@@ -24,9 +24,9 @@ import java.util.Set;
 
 @Service
 @Log4j2
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class UserDetailsServiceImpl implements UserDetailsService {
-    @Autowired
+
     private final UserRepository userRepository;
 
     @Override

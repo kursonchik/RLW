@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author : Volha Salash
@@ -132,7 +133,7 @@ public class TrainController {
         modelAndView.addObject("schedulesList", scheduleDtoList);
         return modelAndView;
     }
-/*
+
     @PostMapping(value = "/trains/edit/schedule")
     public ModelAndView editTrainSchedule(@RequestParam Map<String, String> requestParams,
                                           @ModelAttribute("train") TrainDto trainDto) {
@@ -149,11 +150,8 @@ public class TrainController {
             scheduleService.editSchedule(scheduleDto);
         }
         modelAndView.setViewName("redirect:/trains");
-        messagingService.sendMessage();
         return modelAndView;
     }
-
- */
 
     @GetMapping(value = "/trains/delete/{id}")
     public ModelAndView deleteTrain(@PathVariable("id") int id) {

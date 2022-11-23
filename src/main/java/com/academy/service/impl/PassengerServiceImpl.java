@@ -19,13 +19,11 @@ import java.util.List;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PassengerServiceImpl implements PassengerService {
-    @Autowired
+
     private final PassengerRepository passengerRepository;
-    @Autowired
     private final PassengerMapper passengerMapper;
-    @Autowired
     private final UserMapper userMapper;
 
 
