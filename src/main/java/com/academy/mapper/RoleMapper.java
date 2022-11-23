@@ -1,17 +1,22 @@
 package com.academy.mapper;
-
+/*
 import com.academy.dto.RoleDto;
-import com.academy.model.entity.Role;
-import com.academy.model.entity.Users;
+import com.academy.model.entity.Roles;
+import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.factory.Mappers;
 
 /**
  * @author : Volha Salash
  */
-@Mapper(uses = {Users.class})
+/*
+@Mapper(componentModel = "spring",uses = {UserMapper.class}, injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 public interface RoleMapper {
+    RoleMapper INSTANCE = Mappers.getMapper(RoleMapper.class);
+    RoleDto toDto(Roles role);
 
-    RoleDto toDto(Role role);
-
-    Role toEntity(RoleDto roleDto);
+    Roles toEntity(RoleDto roleDto);
 }
+
+
+ */

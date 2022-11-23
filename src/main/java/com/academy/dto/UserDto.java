@@ -1,9 +1,6 @@
 package com.academy.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -23,6 +20,7 @@ public class UserDto implements Serializable {
 
     private String email;
 
+    private PassengerDto passenger;
 
     private String password;
 
