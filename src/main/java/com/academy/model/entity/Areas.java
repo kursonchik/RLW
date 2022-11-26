@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "areas")
 public class Areas implements Serializable {
 
     @Id

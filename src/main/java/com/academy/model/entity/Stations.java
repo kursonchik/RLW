@@ -16,6 +16,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "stations")
 public class Stations implements Serializable {
     @Id
     @Column(name = "id")

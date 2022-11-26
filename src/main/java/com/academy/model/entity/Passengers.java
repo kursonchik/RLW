@@ -19,6 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Data
+@Table(name = "passengers")
 public class Passengers implements Serializable {
 
     @Id

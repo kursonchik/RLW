@@ -37,7 +37,7 @@ public class PassengerRepositoryImpl implements PassengerRepository {
     @Override
     @SuppressWarnings("unchecked")
     public List<Passengers> getPassengersByTrain(Trains train) {
-        Query query = entityManager.createQuery("SELECT DISTINCT t.passengers FROM Tickets t " +
+        Query query = entityManager.createQuery("SELECT DISTINCT t.passenger FROM Tickets t " +
                 "WHERE :train member of t.trains AND t.date <= CURRENT_DATE");
         query.setParameter("train", train);
         return query.getResultList();

@@ -18,6 +18,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "tickets")
 public class Tickets implements Serializable {
     @Id
     @Column(name = "id", unique = true, nullable = false)

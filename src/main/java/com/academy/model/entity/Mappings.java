@@ -13,6 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Entity
 @Data
+@Table(name = "mappings")
 public class Mappings implements Serializable {
 
     @Id

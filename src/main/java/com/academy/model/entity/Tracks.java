@@ -15,6 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Data
+@Table(name = "tracks")
 public class Tracks implements Serializable {
 
     @Id

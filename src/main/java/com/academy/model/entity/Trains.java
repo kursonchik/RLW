@@ -20,6 +20,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "trains")
 public class Trains implements Serializable {
     @Id
     @Column(name = "id", unique = true, nullable = false)

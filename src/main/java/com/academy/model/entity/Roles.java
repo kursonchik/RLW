@@ -16,6 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@Table(name = "roles")
 public class Roles  implements GrantedAuthority {
 
     @Id

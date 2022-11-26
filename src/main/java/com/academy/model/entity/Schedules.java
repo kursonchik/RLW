@@ -18,6 +18,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "schedules")
 public class Schedules implements Serializable {
 
         public Schedules(Stations station, Trains train) {

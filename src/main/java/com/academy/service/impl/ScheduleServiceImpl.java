@@ -26,27 +26,18 @@ import java.util.*;
  */
 @Service
 @Log4j2
-@RequiredArgsConstructor
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class ScheduleServiceImpl implements ScheduleService {
-    @Autowired
+
     private final ScheduleRepository scheduleRepository;
-    @Autowired
     private final AreaService areaService;
-    @Autowired
     private final StationService stationService;
-    @Autowired
     private final TrackService trackService;
-    @Autowired
     private final TrainService trainService;
-    @Autowired
     private final MappingService mappingService;
-    @Autowired
     private final ScheduleMapper scheduleMapper;
-    @Autowired
     private final StationMapper stationMapper;
-    @Autowired
     private final TrainMapper trainMapper;
-    @Autowired
     private final TimetableScheduleMapper timetableScheduleMapper;
 
     private static final String ON_SCHEDULE = "On Schedule";

@@ -3,6 +3,7 @@ package com.academy.validation;
 import com.academy.dto.UserDto;
 import com.academy.service.interfaces.UserService;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -62,7 +63,7 @@ public class UserValidatorTest {
         assertTrue(errors.hasErrors());
         assertNotNull(errors.getFieldError("username"));
     }
-
+@Disabled
     @Test
     public void validateUserNameShort() {
         userDto.setUsername(STRING_SHORT);
