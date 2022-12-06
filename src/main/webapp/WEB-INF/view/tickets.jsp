@@ -1,0 +1,68 @@
+<%@ include file="common/header.jsp" %>
+
+<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
+    <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+            <a href="<c:url value="/"/>" class="nav-item nav-link active" style="color: white">Home</a>
+            <div class="btn-group">
+                <a href="/myaccount/${pageContext.request.userPrincipal.name}"
+                   class="btn btn-outline-light">My Account</a>
+                <a href="/myaccount/${pageContext.request.userPrincipal.name}/tickets" class="btn btn-outline-light">My Tickets</a>
+            </div>
+        </div>
+        <div class="navbar-nav ml-auto">
+            <a href="#" class="nav-item nav-link disabled" style="color: white">
+                Logged in as <strong>${pageContext.request.userPrincipal.name}</strong></a>
+            <a href="<c:url value="/logout"/>" class="btn btn-outline-light">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div style="height: 100px"></div>
+
+<div class="container">
+    <div class="jumbotron">
+        <c:if test="${empty ticketsList}">
+            <div class="text-center">
+                <h2>You have not bought any tickets yet.</h2>
+            </div>
+        </c:if>
+        <c:if test="${!empty ticketsList}">
+            <table class="col-sm-10 offset-1 table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Number</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="ticket" items="${ticketsList}">
+                    <tr>
+                        <td>${ticket.number}</td>
+                        <td>${ticket.departureStation}</td>
+                        <td>${ticket.arrivalStation}</td>
+                        <td>${ticket.departureTime}</td>
+                        <td>${ticket.arrivalTime}</td>
+                        <td>${ticket.date}</td>
+                        <td>
+                            <a href="/ticket/delete/${ticket.id}" class="btn btn-danger" role="button">Cancel</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </c:if>
+    </div>
+</div>
+
+<%@ include file="common/footer.jsp" %>
