@@ -15,12 +15,22 @@
     <c:if test="${!empty train.name}">
         <title>Edit Train</title>
     </c:if>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="${pageContext.request.contextPath}/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+         <!-- Bootstrap CSS (Cloudflare CDN) -->
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+          <!-- jQuery (Cloudflare CDN) -->
+          <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+
+          <!-- Bootstrap Bundle JS (Cloudflare CDN) -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+          <link href="${pageContext.request.contextPath}/resources/webapp/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+
 </head>
 
 <body>
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -64,13 +74,13 @@
                     <c:if test="${empty train.name}">
                         <label for="track">Track</label>
                         <form:input path="track.id" type="number" class="form-control"
-                                    id="track" autofocus="true" min="1" max="5" required="true"/>
+                                    id="track" autofocus="true" min="1" max="9" required="true"/>
                     </c:if>
                     <c:if test="${!empty train.name}}">
                         <form:input path="track.id" type="hidden" class="form-control"
                                     id="track" value="${train.track.id}"/>
                     </c:if>
-                    <div class="invalid-feedback">Please enter a number from 1 to 5.</div>
+                    <div class="invalid-feedback">Please enter a number from 1 to 9.</div>
                 </div>
             </spring:bind>
             <spring:bind path="name">
@@ -89,7 +99,7 @@
                         <c:set var="nameError"><form:errors path="name"/></c:set>
                         <c:if test="${!empty nameError}">${nameError}</c:if>
                         <c:if test="${empty nameError}">
-                            Train name should consist of a Latin word and a Roman numeral separated by space.
+                            Train name should consist of the letters and a number separated by space.
                         </c:if>
                     </div>
                 </div>
@@ -135,7 +145,4 @@
     })();
 </script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <%@ include file="common/footer.jsp" %>

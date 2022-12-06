@@ -25,5 +25,5 @@ public interface AreaService {
 
     List<AreaDto> getAreasByRoute(List<StationDto> route);
 
-    void createArea(StationDto stationDto, int length, TrackDto trackDto);
+    void createArea(StationDto stationDto, int distance, TrackDto trackDto);
 }

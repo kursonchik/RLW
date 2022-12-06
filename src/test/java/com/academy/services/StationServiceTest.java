@@ -15,13 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @author : Volha Salash
  */
 @ExtendWith(MockitoExtension.class)
-public class StationServiceTest {
+class StationServiceTest {
 
     @InjectMocks
     private StationServiceImpl stationService;
-@Disabled
+    @Disabled
     @Test
-    public void testDeleteStationException() {
+    void testDeleteStationException() {
         StationDto stationDto = new StationDto();
         stationDto.setId(18);
 

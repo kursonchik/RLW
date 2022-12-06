@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
  * @author : Volha Salash
  */
 @ExtendWith(MockitoExtension.class)
-public class TicketValidatorTest {
+class TicketValidatorTest {
 
     @InjectMocks
     private TicketValidator ticketValidator;
@@ -57,13 +57,13 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketValid() {
+    void validateTicketValid() {
         ticketValidator.validate(ticketDto, errors);
         assertFalse(errors.hasErrors());
     }
 
     @Test
-    public void validateTicketDepartureEmpty() {
+    void validateTicketDepartureEmpty() {
         ticketDto.setDepartureStation(EMPTY_STRING);
         ticketValidator.validate(ticketDto, errors);
         assertTrue(errors.hasErrors());
@@ -71,7 +71,7 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketArrivalEmpty() {
+    void validateTicketArrivalEmpty() {
         ticketDto.setArrivalStation(EMPTY_STRING);
         ticketValidator.validate(ticketDto, errors);
         assertTrue(errors.hasErrors());
@@ -79,7 +79,7 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketDepartureArrivalEmpty() {
+    void validateTicketDepartureArrivalEmpty() {
         ticketDto.setDepartureStation(EMPTY_STRING);
         ticketDto.setArrivalStation(EMPTY_STRING);
         ticketValidator.validate(ticketDto, errors);
@@ -89,7 +89,7 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketDepartureArrivalSame() {
+    void validateTicketDepartureArrivalSame() {
         ticketDto.setArrivalStation(DEP_STATION_VALID);
         ticketValidator.validate(ticketDto, errors);
         assertTrue(errors.hasErrors());
@@ -98,7 +98,7 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketDateEmpty() {
+    void validateTicketDateEmpty() {
         ticketDto.setDate(EMPTY_STRING);
         ticketValidator.validate(ticketDto, errors);
         assertTrue(errors.hasErrors());
@@ -106,7 +106,7 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketDateInvalid() {
+    void validateTicketDateInvalid() {
         ticketDto.setDate(DATE_INVALID);
         ticketValidator.validate(ticketDto, errors);
         assertTrue(errors.hasErrors());
@@ -114,7 +114,7 @@ public class TicketValidatorTest {
     }
 
     @Test
-    public void validateTicketDatePast() throws ParseException {
+    void validateTicketDatePast() throws ParseException {
         when(scheduleService.convertStringtoDate(anyString()))
                 .thenReturn(new SimpleDateFormat("dd.MM.yyyy").parse(DATE_PAST));
         ticketValidator.validate(ticketDto, errors);

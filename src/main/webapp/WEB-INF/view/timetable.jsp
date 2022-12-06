@@ -1,6 +1,7 @@
 <%@ include file="common/header.jsp" %>
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -13,15 +14,6 @@
                     <a href="<c:url value="/stations"/>" class="btn btn-outline-light">Stations</a>
                     <a href="<c:url value="/trains"/>" class="btn btn-outline-light">Trains</a>
                     <a href="<c:url value="/passengers"/>" class="btn btn-outline-light">Passengers</a>
-                    <a href="<c:url value="/timetable"/>" class="btn btn-outline-light">Timetable</a>
-                </div>
-            </sec:authorize>
-            <sec:authorize access="hasRole('ROLE_USER')">
-                <div class="btn-group">
-                    <a href="/myaccount/${pageContext.request.userPrincipal.name}"
-                       class="btn btn-outline-light">My Account</a>
-                    <a href="/myaccount/${pageContext.request.userPrincipal.name}/tickets"
-                       class="btn btn-outline-light">My Tickets</a>
                     <a href="<c:url value="/timetable"/>" class="btn btn-outline-light">Timetable</a>
                 </div>
             </sec:authorize>
@@ -90,8 +82,4 @@
     </div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <%@ include file="common/footer.jsp" %>

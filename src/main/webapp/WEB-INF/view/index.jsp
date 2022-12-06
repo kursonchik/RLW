@@ -1,6 +1,7 @@
 <%@ include file="common/header.jsp" %>
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -13,6 +14,7 @@
                     <a href="<c:url value="/stations"/>" class="btn btn-outline-light">Stations</a>
                     <a href="<c:url value="/trains"/>" class="btn btn-outline-light">Trains</a>
                     <a href="<c:url value="/passengers"/>" class="btn btn-outline-light">Passengers</a>
+                    <a href="<c:url value="/timetable"/>" class="btn btn-outline-light">Timetable</a>
                 </div>
             </sec:authorize>
             <sec:authorize access="hasRole('ROLE_USER')">
@@ -21,7 +23,7 @@
                        class="btn btn-outline-light">My Account</a>
                     <a href="/myaccount/${pageContext.request.userPrincipal.name}/tickets"
                        class="btn btn-outline-light">My Tickets</a>
-                                   </div>
+                </div>
             </sec:authorize>
         </div>
         <div class="navbar-nav ml-auto">
@@ -88,26 +90,16 @@
             </spring:bind>
             <div class="form-group row">
                 <div class="col-sm-11 offset-sm-1">
-                    <button type="submit" class="btn btn-danger">Search</button>
+                    <button type="submit" class="btn btn-warning">Search</button>
                 </div>
             </div>
         </form:form>
     </div>
-    <img class="img-fluid align-self-center mr-3 col-sm-8" src="${pageContext.request.contextPath}/assets/map.png"
-         alt="Map of stations">
+    <img class="img-fluid align-self-center mr-3 col-sm-8" src="${pageContext.request.contextPath}/assets/spacetrain.jpg"
+         alt="Space train">
 </div>
+<div style="height: auto"></div>
 
-<div style="height: 100px"></div>
-
-<div class="text-center">
-    <img src="${pageContext.request.contextPath}/assets/spacetrain.jpg" class="img-fluid" alt="Space train">
-</div>
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
 
 <%@ include file="common/footer.jsp" %>

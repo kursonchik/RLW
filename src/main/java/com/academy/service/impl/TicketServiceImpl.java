@@ -11,6 +11,7 @@ import com.academy.service.interfaces.StationService;
 import com.academy.service.interfaces.TicketService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.apache.commons.math3.util.Precision;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -95,9 +96,9 @@ public class TicketServiceImpl implements TicketService {
         double ticketPrice = 0;
         List<AreaDto> areas = areaService.getAreasByRoute(route);
         for (AreaDto area : areas) {
-            ticketPrice += area.getDistance() * 3;
+            ticketPrice += area.getDistance() * 30;
         }
-        return ticketPrice;
+        return Precision.round(ticketPrice, 2);
     }
 
     @Override

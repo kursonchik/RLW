@@ -15,12 +15,21 @@
     <c:if test="${!empty station.name}">
         <title>Edit Station</title>
     </c:if>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link href="${pageContext.request.contextPath}/assets/favicon.ico" rel="icon" type="image/x-icon"/>
+         <!-- Bootstrap CSS (Cloudflare CDN) -->
+           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+          <!-- jQuery (Cloudflare CDN) -->
+          <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+
+          <!-- Bootstrap Bundle JS (Cloudflare CDN) -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+          <link href="${pageContext.request.contextPath}/resources/webapp/assets/favicon.ico" rel="icon" type="image/x-icon"/>
 </head>
 
 <body>
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -121,7 +130,4 @@
     })();
 </script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <%@ include file="common/footer.jsp" %>

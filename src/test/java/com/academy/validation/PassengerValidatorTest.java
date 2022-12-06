@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
  * @author : Volha Salash
  */
 @ExtendWith(MockitoExtension.class)
-public class PassengerValidatorTest {
+ class PassengerValidatorTest {
 
     @InjectMocks
     private PassengerValidator passengerValidator;
@@ -61,13 +61,13 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerValid() {
+     void validatePassengerValid() {
         passengerValidator.validate(passengerDto, errors);
         assertFalse(errors.hasErrors());
     }
 
     @Test
-    public void validatePassengerFirstNameEmpty() {
+     void validatePassengerFirstNameEmpty() {
         passengerDto.setFirstName(EMPTY_STRING);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -75,7 +75,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerFirstNameInvalid() {
+     void validatePassengerFirstNameInvalid() {
         passengerDto.setFirstName(NAME_INVALID);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -83,7 +83,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerFirstNameLong() {
+     void validatePassengerFirstNameLong() {
         passengerDto.setFirstName(NAME_LONG);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -91,7 +91,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerLastNameEmpty() {
+     void validatePassengerLastNameEmpty() {
         passengerDto.setLastName(EMPTY_STRING);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -99,7 +99,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerLastNameInvalid() {
+     void validatePassengerLastNameInvalid() {
         passengerDto.setLastName(NAME_INVALID);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -107,7 +107,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerLastNameLong() {
+     void validatePassengerLastNameLong() {
         passengerDto.setLastName(NAME_LONG);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -115,7 +115,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerBirthDateEmpty() {
+     void validatePassengerBirthDateEmpty() {
         passengerDto.setBirthDate(EMPTY_STRING);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -123,7 +123,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerBirthDateInvalid() {
+     void validatePassengerBirthDateInvalid() {
         passengerDto.setBirthDate(DATE_INVALID);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -131,7 +131,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerBirthDateNotPast() {
+     void validatePassengerBirthDateNotPast() {
         when(scheduleService.convertStringtoDate(anyString())).thenReturn(new Date());
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -139,7 +139,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validatePassengerPassportNumberEmpty() {
+     void validatePassengerPassportNumberEmpty() {
         passengerDto.setPassportNumber(0);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -147,7 +147,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validateStationPassportNumberLong() {
+     void validateStationPassportNumberLong() {
         passengerDto.setPassportNumber(PASSPORT_NUMBER * 10);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -155,7 +155,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validateStationPassportNumberShort() {
+     void validateStationPassportNumberShort() {
         passengerDto.setPassportNumber(PASSPORT_NUMBER / 10);
         passengerValidator.validate(passengerDto, errors);
         assertTrue(errors.hasErrors());
@@ -163,7 +163,7 @@ public class PassengerValidatorTest {
     }
 
     @Test
-    public void validateStationPassportNumberDuplicate() {
+     void validateStationPassportNumberDuplicate() {
         passengerDto.setId(1);
         lenient().when(passengerService.getPassengerByPassportNumber(anyInt()))
                 .thenReturn(new PassengerDto());

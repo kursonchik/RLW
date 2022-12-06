@@ -1,6 +1,7 @@
 <%@ include file="common/header.jsp" %>
 
 <nav class="navbar navbar-expand-md navbar-light sticky-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -55,7 +56,7 @@
                     ${passenger.birthDate} ${passenger.passportNumber}</strong></p>
             </c:if>
             <div style="height: 10px"></div>
-            <p>Price: ₪ <strong>${ticketForm.price}</strong></p>
+            <p>Price: <strong>${ticketForm.price}</strong></p>
         </div>
         <div style="height: 10px"></div>
         <div class="text-center">
@@ -65,9 +66,4 @@
     </div>
 </div>
 
-
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <%@ include file="common/footer.jsp" %>

@@ -1,6 +1,7 @@
 <%@ include file="common/header.jsp" %>
 
 <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #6897BB">
+<span class="material-symbols-outlined" style="color: white"> train </span>
     <a href="<c:url value="/"/>" class="navbar-brand" style="color: white">RLW</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -59,7 +60,7 @@
                 <p>Number of changes: ${numberOfChanges}</p>
             </div>
             <div style="height: 50px">
-                <p>Price: ₪ <strong>${ticketForm.price}</strong></p>
+                <p>Price: <strong>${ticketForm.price}</strong></p>
             </div>
             <form:form action="/ticket/verify" modelAttribute="ticketForm" method="POST">
             <form:hidden path="departureTime" name="departureTime" value="${schedules.get(0).departureTime}"/>
@@ -70,12 +71,8 @@
             </div>
         </div>
         <div class="text-center">
-            <img src="${pageContext.request.contextPath}/assets/map.png" class="img-fluid" alt="Map of stations">
         </div>
-    </div>
     </form:form>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<%@ include file="common/footer.jsp" %>
+</body>
+</html>

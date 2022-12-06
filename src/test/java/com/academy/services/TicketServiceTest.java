@@ -31,7 +31,7 @@ import static org.mockito.Mockito.when;
  * @author : Volha Salash
  */
 @ExtendWith(MockitoExtension.class)
-public class TicketServiceTest {
+class TicketServiceTest {
 
     @InjectMocks
     private TicketServiceImpl ticketService;
@@ -87,24 +87,24 @@ public class TicketServiceTest {
     }
 
     @Test
-    public void testGenerateTicketNumber() {
+    void testGenerateTicketNumber() {
         assertNotNull(ticketService.generateTicketNumber(ticketDto));
     }
 
     @Test
-    public void testIsExpiredFalse() {
+    void testIsExpiredFalse() {
         when(scheduleService.convertStringtoDate(any())).thenReturn(CURRENT_TIME_PLUS_5_MINUTES);
         assertFalse(ticketService.isExpired(ticketDto));
     }
 
     @Test
-    public void testIsExpiredTrue() {
+    void testIsExpiredTrue() {
         when(scheduleService.convertStringtoDate(any())).thenReturn(DateUtils.setYears(DATE_TODAY, 2015));
         assertTrue(ticketService.isExpired(ticketDto));
     }
 
     @Test
-    public void testAreTicketsAvailable() {
+    void testAreTicketsAvailable() {
         when(scheduleService.convertStringtoDate(any())).thenReturn(DATE_TODAY);
         when(areaService.getAreasByRoute(anyList())).thenReturn(new ArrayList<>());
         when(scheduleService.convertStringtoDate(anyString())).thenReturn(DATE_TODAY);
@@ -114,7 +114,7 @@ public class TicketServiceTest {
     }
 
     @Test
-    public void testIsPassengerNotPresentOnTrain() {
+    void testIsPassengerNotPresentOnTrain() {
         List<TicketDto> ticketDtoList = new ArrayList<>();
         ticketDtoList.add(ticketDto);
 
@@ -126,7 +126,7 @@ public class TicketServiceTest {
     }
 
     @Test
-    public void testIsEnoughTimeToDepartureOnAnotherDate() {
+    void testIsEnoughTimeToDepartureOnAnotherDate() {
         ticketEntity.setDate(DATE_TOMORROW);
 
         when(ticketMapper.toEntity(ticketDto)).thenReturn(ticketEntity);
@@ -135,7 +135,7 @@ public class TicketServiceTest {
     }
 
     @Test
-    public void testIsEnoughTimeToDepartureTodayWithFifteenMinutesLeft() {
+    void testIsEnoughTimeToDepartureTodayWithFifteenMinutesLeft() {
         ticketEntity.setDate(DATE_TODAY);
 
         when(ticketMapper.toEntity(ticketDto)).thenReturn(ticketEntity);
@@ -145,7 +145,7 @@ public class TicketServiceTest {
     }
 
     @Test
-    public void testIsEnoughTimeToDepartureTodayWithFiveMinutesLeft() {
+    void testIsEnoughTimeToDepartureTodayWithFiveMinutesLeft() {
         ticketEntity.setDate(DATE_TODAY);
 
         when(ticketMapper.toEntity(ticketDto)).thenReturn(ticketEntity);

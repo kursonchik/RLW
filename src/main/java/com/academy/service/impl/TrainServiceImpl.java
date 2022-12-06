@@ -7,6 +7,7 @@ import com.academy.dto.PassengerDto;
 import com.academy.dto.ScheduleDto;
 import com.academy.dto.TrackDto;
 import com.academy.dto.TrainDto;
+import com.academy.exception.IllegalOperationException;
 import com.academy.model.repository.interfaces.PassengerRepository;
 import com.academy.model.repository.interfaces.TrainRepository;
 import com.academy.service.interfaces.TrainService;
@@ -67,11 +68,7 @@ public class TrainServiceImpl implements TrainService {
         log.info("Updated train " + trainDto.getName());
     }
 
-    @Override
-    public void deleteTrain(TrainDto trainDto) {
 
-    }
-/*
     @Override
     @Transactional
     public void deleteTrain(TrainDto trainDto) {
@@ -80,10 +77,8 @@ public class TrainServiceImpl implements TrainService {
         }
         trainRepository.deleteTrain(trainMapper.toEntity(trainDto));
         log.info("Deleted train " + trainDto.getName());
-        messagingService.sendMessage();
     }
 
- */
 
     @Override
     public Set<TrainDto> getTrainsBySchedule(List<ScheduleDto> scheduleDtoList) {

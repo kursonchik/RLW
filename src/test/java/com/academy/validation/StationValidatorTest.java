@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
  * @author : Volha Salash
  */
 @ExtendWith(MockitoExtension.class)
-public class StationValidatorTest {
+class StationValidatorTest {
 
     @InjectMocks
     private StationValidator stationValidator;
@@ -42,13 +42,13 @@ public class StationValidatorTest {
     }
 
     @Test
-    public void validateStationValid() {
+    void validateStationValid() {
         stationValidator.validate(stationDto, errors);
         assertFalse(errors.hasErrors());
     }
 
     @Test
-    public void validateStationNameEmpty() {
+    void validateStationNameEmpty() {
         stationDto.setName(EMPTY_STRING);
         stationValidator.validate(stationDto, errors);
         assertTrue(errors.hasErrors());
@@ -56,7 +56,7 @@ public class StationValidatorTest {
     }
 
     @Test
-    public void validateStationNameInvalid() {
+    void validateStationNameInvalid() {
         stationDto.setName(NAME_INVALID);
         stationValidator.validate(stationDto, errors);
         assertTrue(errors.hasErrors());
@@ -64,7 +64,7 @@ public class StationValidatorTest {
     }
 
     @Test
-    public void validateStationNameLong() {
+    void validateStationNameLong() {
         stationDto.setName(STRING_LONG);
         stationValidator.validate(stationDto, errors);
         assertTrue(errors.hasErrors());
@@ -72,7 +72,7 @@ public class StationValidatorTest {
     }
 
     @Test
-    public void validateStationNameDuplicate() {
+    void validateStationNameDuplicate() {
         stationDto.setId(1);
         when(stationService.getStationByName(anyString())).thenReturn(new StationDto());
         stationValidator.validate(stationDto, errors);

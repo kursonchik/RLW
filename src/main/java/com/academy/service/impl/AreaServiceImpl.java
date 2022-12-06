@@ -76,21 +76,21 @@ public class AreaServiceImpl implements AreaService {
 
     @Override
     @Transactional
-    public void createArea(StationDto stationDto, int length, TrackDto trackDto) {
+    public void createArea(StationDto stationDto, int distance, TrackDto trackDto) {
         StationDto nearestStation;
         int stationOrder = mappingService.getStationOrder(stationDto, trackDto);
         if (stationOrder == 1) {
             nearestStation = mappingService.getStationByOrder(trackDto, 2);
             areaRepository.addArea(new Areas(stationMapper.toEntity(stationDto),
-                    stationMapper.toEntity(nearestStation), length, trackMapper.toEntity(trackDto), true));
+                    stationMapper.toEntity(nearestStation), distance, trackMapper.toEntity(trackDto), true));
             areaRepository.addArea(new Areas(stationMapper.toEntity(nearestStation),
-                    stationMapper.toEntity(stationDto), length, trackMapper.toEntity(trackDto), false));
+                    stationMapper.toEntity(stationDto), distance, trackMapper.toEntity(trackDto), false));
         } else {
             nearestStation = mappingService.getStationByOrder(trackDto, stationOrder - 1);
             areaRepository.addArea(new Areas(stationMapper.toEntity(stationDto),
-                    stationMapper.toEntity(nearestStation), length, trackMapper.toEntity(trackDto), false));
+                    stationMapper.toEntity(nearestStation), distance, trackMapper.toEntity(trackDto), false));
             areaRepository.addArea(new Areas(stationMapper.toEntity(nearestStation),
-                    stationMapper.toEntity(stationDto), length, trackMapper.toEntity(trackDto), true));
+                    stationMapper.toEntity(stationDto), distance, trackMapper.toEntity(trackDto), true));
         }
     }
 }
